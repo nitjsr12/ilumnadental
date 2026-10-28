@@ -84,8 +84,8 @@ export function AboutDoctorSection() {
                     alt={aboutHomeGallery.primaryAlt}
                     fill
                     sizes="(max-width: 1024px) 92vw, 42vw"
-                    className="object-contain object-bottom"
-                    priority={false}
+                    className="object-cover object-[center_22%]"
+                    priority
                   />
                 </motion.div>
               </motion.div>

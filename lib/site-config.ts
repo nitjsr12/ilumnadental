@@ -67,8 +67,8 @@ export const siteConfig = {
       "Comfortable, patient-friendly care in a refined clinical environment",
     ],
     portrait: {
-      src: `${ILUMNA_CDN}/2026/10/Dentist-Portrait-in-a-Glossy-Tooth-Frame.png`,
-      alt: "Dr. Inchara Vadegadde, iLUMNA Dental",
+      src: "/dr-inchara-portrait.jpg",
+      alt: "Dr. Inchara Vadegadde at iLUMNA Advanced Dental Centre, Jayanagar",
     },
   },
 

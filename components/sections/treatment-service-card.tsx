@@ -24,26 +24,29 @@ export function TreatmentServiceCard({ treatment, className }: TreatmentServiceC
       )}
     >
       <div className="treatment-service-card-media relative aspect-[4/3] overflow-hidden rounded-t-2xl">
-        <div className="treatment-service-card-icon-panel absolute inset-0 z-[1] flex items-center justify-center p-6">
+        <div className="treatment-service-card-icon-panel absolute inset-0 z-[1] flex items-center justify-center p-4 sm:p-5">
           <Image
             src={treatment.iconImage}
             alt=""
             width={280}
             height={280}
-            className="treatment-service-card-icon-art h-auto max-h-[7.5rem] w-auto max-w-[min(100%,11rem)] object-contain sm:max-h-[8.25rem] sm:max-w-[12rem]"
+            className="treatment-service-card-icon-art mx-auto h-auto max-h-[5.25rem] w-auto max-w-[min(100%,8.5rem)] object-contain object-center sm:max-h-[5.75rem] sm:max-w-[9.25rem]"
             aria-hidden
           />
         </div>
-        <Image
-          src={treatment.image}
-          alt={treatment.imageAlt}
-          fill
-          sizes="(max-width: 768px) 50vw, 33vw"
-          className="treatment-service-card-photo object-cover"
-        />
+
+        <div className="treatment-service-card-hover-panel absolute inset-0 z-[2]">
+          <Image
+            src={treatment.hoverImage}
+            alt={treatment.imageAlt}
+            fill
+            sizes="(max-width: 768px) 50vw, 33vw"
+            className="treatment-service-card-hover-art object-cover object-center"
+          />
+        </div>
       </div>
 
-      <div className="treatment-service-card-body flex flex-1 flex-col p-4 sm:p-5">
+      <div className="treatment-service-card-body flex flex-1 flex-col p-3.5 sm:p-4">
         <h3 className="treatment-service-card-title font-heading text-base font-bold leading-snug sm:text-lg">
           {treatment.title}
         </h3>
