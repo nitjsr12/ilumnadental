@@ -12,6 +12,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SectionShell } from "@/components/ui/section-shell";
+import {
+  PremiumSectionHeader,
+  PremiumTitleBlue,
+  PremiumTitleDark,
+  PremiumTitleGold,
+} from "@/components/ui/premium-section-header";
 import { AboutIconBadge } from "@/components/sections/about/about-icon-badge";
 import { aboutPhilosophy } from "@/data/about-page";
 import { fadeUp, staggerContainer } from "@/components/animations/variants";
@@ -28,7 +34,7 @@ const pillarIcons: LucideIcon[] = [
 
 export function AboutPhilosophySection() {
   return (
-    <SectionShell className="relative overflow-hidden">
+    <SectionShell variant="muted" className="relative overflow-hidden">
       <div aria-hidden className="hero-noise pointer-events-none absolute inset-0 opacity-15" />
       <div
         aria-hidden
@@ -43,23 +49,19 @@ export function AboutPhilosophySection() {
           transition={{ duration: 0.6 }}
           className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:sticky lg:top-28"
         >
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mb-8 lg:mb-0"
-          >
-            <motion.p variants={fadeUp} className="eyebrow mb-2 lg:text-left">
-              {aboutPhilosophy.eyebrow}
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-title lg:text-left">
-              {aboutPhilosophy.title}
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-lead mt-3 lg:text-left">
-              {aboutPhilosophy.intro}
-            </motion.p>
-          </motion.div>
+          <PremiumSectionHeader
+            badge={aboutPhilosophy.eyebrow}
+            align="left"
+            className="!mx-0 mb-8 max-w-xl !text-left lg:mb-0"
+            description={aboutPhilosophy.intro}
+            title={
+              <>
+                <PremiumTitleDark>Our Philosophy of </PremiumTitleDark>
+                <PremiumTitleBlue>Modern </PremiumTitleBlue>
+                <PremiumTitleGold>Dentistry</PremiumTitleGold>
+              </>
+            }
+          />
 
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {aboutPhilosophy.gallery.map((photo, i) => (

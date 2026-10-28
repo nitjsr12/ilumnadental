@@ -2,21 +2,30 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Smile, Star, Timer, Users } from "lucide-react";
+import { Star } from "lucide-react";
 import { SectionShell } from "@/components/ui/section-shell";
-import { AboutIconBadge } from "@/components/sections/about/about-icon-badge";
+import {
+  PremiumSectionHeader,
+  PremiumTitleBlue,
+  PremiumTitleDark,
+  PremiumTitleGold,
+} from "@/components/ui/premium-section-header";
+import {
+  AnimatedSvgIcon,
+  type AnimatedIconName,
+} from "@/components/icons/animated-svg-icon";
 import { AnimatedStat } from "@/components/ui/animated-stat";
 import { aboutImpact } from "@/data/about-page";
 import { images } from "@/lib/images";
 import { fadeUp, staggerContainer } from "@/components/animations/variants";
 import { cn } from "@/lib/utils";
 
-const statIcons = {
-  smiles: Smile,
-  experience: Timer,
-  patients: Users,
-  satisfaction: Star,
-} as const;
+const statIcons: Record<string, AnimatedIconName> = {
+  smiles: "tooth",
+  experience: "calendar",
+  patients: "users",
+  satisfaction: "star",
+};
 
 export function AboutImpactSection() {
   return (
@@ -33,27 +42,22 @@ export function AboutImpactSection() {
       </div>
       <div aria-hidden className="hero-noise pointer-events-none absolute inset-0 opacity-20" />
 
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="relative mx-auto max-w-2xl text-center"
-      >
-        <motion.p variants={fadeUp} className="eyebrow mb-2">
-          {aboutImpact.eyebrow}
-        </motion.p>
-        <motion.h2 variants={fadeUp} className="section-title">
-          {aboutImpact.title}
-        </motion.h2>
-        <motion.p variants={fadeUp} className="text-lead mx-auto mt-3">
-          {aboutImpact.description}
-        </motion.p>
-      </motion.div>
+      <PremiumSectionHeader
+        badge={aboutImpact.eyebrow}
+        description={aboutImpact.description}
+        className="relative mx-auto"
+        title={
+          <>
+            <PremiumTitleDark>Your Smile. </PremiumTitleDark>
+            <PremiumTitleBlue>Our </PremiumTitleBlue>
+            <PremiumTitleGold>Commitment</PremiumTitleGold>
+          </>
+        }
+      />
 
       <ul className="relative mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {aboutImpact.stats.map((stat, i) => {
-          const Icon = statIcons[stat.id as keyof typeof statIcons] ?? Star;
+          const iconName = statIcons[stat.id] ?? "sparkle";
           const isRating = stat.id === "satisfaction";
 
           return (
@@ -78,14 +82,14 @@ export function AboutImpactSection() {
                   className="trust-stat-shine pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
 
-                <AboutIconBadge icon={Icon} size="lg" />
+                <AnimatedSvgIcon name={iconName} size="lg" />
 
                 {isRating && (
-                  <div className="flex items-center gap-0.5 text-gold">
+                  <div className="flex items-center gap-0.5 text-star">
                     {Array.from({ length: 5 }).map((_, star) => (
                       <Star
                         key={star}
-                        className="h-3.5 w-3.5 fill-gold/90"
+                        className="h-3.5 w-3.5 fill-star opacity-90"
                         strokeWidth={0}
                         aria-hidden
                       />

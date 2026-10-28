@@ -14,8 +14,13 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  PremiumSectionHeader,
+  PremiumTitleBlue,
+  PremiumTitleDark,
+  PremiumTitleGold,
+} from "@/components/ui/premium-section-header";
 import { faqs } from "@/data/faqs";
-import { fadeUp, staggerContainer } from "@/components/animations/variants";
 import { cn } from "@/lib/utils";
 
 const faqIcons: Record<string, LucideIcon> = {
@@ -48,10 +53,8 @@ function FaqItem({
     <motion.div
       layout
       className={cn(
-        "faq-item overflow-hidden rounded-2xl border transition-[border-color,box-shadow,background] duration-300",
-        open
-          ? "border-secondary/35 bg-surface shadow-[0_16px_48px_-28px_rgba(18,36,47,0.18)]"
-          : "border-primary/10 bg-surface/80 hover:border-gold/30 hover:bg-surface",
+        "premium-card-surface overflow-hidden transition-shadow duration-300",
+        open && "ring-1 ring-[#1781be]/20 shadow-[0_28px_64px_-32px_rgba(4,67,127,0.18)]",
       )}
     >
       <h3>
@@ -66,18 +69,14 @@ function FaqItem({
           <span
             className={cn(
               "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300",
-              open
-                ? "bg-secondary text-white shadow-md shadow-secondary/25"
-                : "bg-accent/80 text-secondary ring-1 ring-gold/20",
+              open ? "bg-[#1781be] text-white shadow-md" : "bg-[#e8f4fc] text-[#1781be]",
             )}
           >
             <Icon className="h-5 w-5" strokeWidth={1.65} aria-hidden />
           </span>
           <span className="min-w-0 flex-1 pt-0.5">
-            <span className="text-xs tabular-nums text-muted">
-              {indexLabel}
-            </span>
-            <span className="mt-0.5 block text-base font-semibold leading-snug text-foreground sm:text-lg">
+            <span className="text-xs tabular-nums text-[#64748b]">{indexLabel}</span>
+            <span className="mt-0.5 block text-base font-bold leading-snug text-[#0d1b3e] sm:text-lg">
               {question}
             </span>
           </span>
@@ -85,8 +84,8 @@ function FaqItem({
             className={cn(
               "mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300",
               open
-                ? "border-secondary/30 bg-secondary/10 text-secondary"
-                : "border-primary/10 bg-background text-muted",
+                ? "border-[#1781be]/30 bg-[#e8f4fc] text-[#1781be]"
+                : "border-[#04437f]/10 bg-white text-[#64748b]",
             )}
           >
             <ChevronDown
@@ -109,8 +108,8 @@ function FaqItem({
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="border-t border-primary/[0.06] px-5 pb-5 pt-1 sm:px-6 sm:pb-6">
-              <p className="border-l-2 border-gold/40 pl-4 text-sm leading-relaxed text-muted sm:text-[0.9375rem]">
+            <div className="border-t border-[#04437f]/8 px-5 pb-5 pt-1 sm:px-6 sm:pb-6">
+              <p className="border-l-2 border-[#d4af37]/50 pl-4 text-sm leading-relaxed text-[#64748b] sm:text-[0.9375rem]">
                 {answer}
               </p>
             </div>
@@ -125,60 +124,54 @@ export function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(faqs[0]?.id ?? null);
 
   return (
-    <section id="faq" className="relative overflow-hidden section-pad">
-      <div aria-hidden className="hero-noise pointer-events-none absolute inset-0 opacity-15" />
+    <section id="faq" className="premium-section-muted relative overflow-x-clip section-pad">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-secondary/8 blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_35%_at_0%_50%,rgba(255,255,255,0.9),transparent_60%)]"
       />
 
-      <div className="section-container relative">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-10">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="lg:sticky lg:top-28"
-          >
-            <motion.p variants={fadeUp} className="eyebrow mb-2">
-              FAQ
-            </motion.p>
+      <div className="hero-page-gutter relative z-10">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-12">
+          <div className="lg:sticky lg:top-28">
+            <PremiumSectionHeader
+              badge="FAQ"
+              align="left"
+              className="!mx-0 max-w-xl !text-left"
+              title={
+                <>
+                  <PremiumTitleDark>Common Questions, </PremiumTitleDark>
+                  <PremiumTitleBlue>Clear </PremiumTitleBlue>
+                  <PremiumTitleGold>Answers</PremiumTitleGold>
+                </>
+              }
+              description="Find answers about treatments, comfort, booking, and visiting our Jayanagar clinic."
+            />
 
-            <motion.h2 variants={fadeUp} className="section-title">
-              Common questions, clear answers
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-lead mt-3 max-w-md">
-              Find answers about treatments, comfort, booking, and visiting our
-              Jayanagar clinic.
-            </motion.p>
-
-            <motion.div
-              variants={fadeUp}
-              className="hero-glass-card mt-8 p-5 sm:p-6"
-            >
-              <p className="text-sm font-semibold text-foreground">
-                Still need help?
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+            <div className="premium-card-surface mt-8 p-5 sm:p-6">
+              <p className="text-sm font-bold text-[#0d1b3e]">Still need help?</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#64748b]">
                 Our team is happy to guide you by phone, WhatsApp, or in person.
               </p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-                <Button href="/book-appointment" showArrow className="btn-shimmer w-full sm:w-auto">
+                <Button
+                  href="/book-appointment"
+                  showArrow
+                  className="hero-cta-primary w-full sm:w-auto"
+                >
                   Book appointment
                 </Button>
                 <Link
                   href="/contact"
-                  className="inline-flex w-full items-center justify-center rounded-lg border border-primary/12 bg-surface px-5 py-3 text-sm font-semibold text-primary transition-colors hover:border-secondary/30 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center rounded-full border-2 border-[#1781be]/30 bg-white px-5 py-3 text-sm font-semibold text-[#04437f] transition-colors hover:border-[#1781be] hover:bg-[#f0f8ff] sm:w-auto"
                 >
                   Contact us
                 </Link>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}

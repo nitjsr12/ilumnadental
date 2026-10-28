@@ -4,6 +4,8 @@ export type Testimonial = {
   author: string;
   treatment?: string;
   rating?: number;
+  /** Display-only relative date (e.g. Google-style “3 weeks ago”) */
+  postedAgo?: string;
   isPlaceholder: boolean;
 };
 
@@ -16,6 +18,7 @@ export const testimonials: Testimonial[] = [
     author: "Abhishek Gowda",
     treatment: "Root canal",
     rating: 5,
+    postedAgo: "2 weeks ago",
     isPlaceholder: false,
   },
   {
@@ -25,6 +28,7 @@ export const testimonials: Testimonial[] = [
     author: "Veerendra Palegar",
     treatment: "Root canal",
     rating: 5,
+    postedAgo: "1 month ago",
     isPlaceholder: false,
   },
   {
@@ -34,6 +38,7 @@ export const testimonials: Testimonial[] = [
     author: "Nayana K",
     treatment: "Root canal",
     rating: 5,
+    postedAgo: "3 weeks ago",
     isPlaceholder: false,
   },
   {
@@ -43,6 +48,7 @@ export const testimonials: Testimonial[] = [
     author: "Chiranth Gowda",
     treatment: "Wisdom tooth",
     rating: 5,
+    postedAgo: "2 months ago",
     isPlaceholder: false,
   },
   {
@@ -52,6 +58,7 @@ export const testimonials: Testimonial[] = [
     author: "Sandeep Rathod",
     treatment: "Wisdom tooth",
     rating: 5,
+    postedAgo: "1 month ago",
     isPlaceholder: false,
   },
   {
@@ -61,6 +68,7 @@ export const testimonials: Testimonial[] = [
     author: "Athmakuru Rohith",
     treatment: "Gum infection",
     rating: 5,
+    postedAgo: "3 weeks ago",
     isPlaceholder: false,
   },
   {
@@ -70,6 +78,7 @@ export const testimonials: Testimonial[] = [
     author: "Tharini Valavan",
     treatment: "Painless care",
     rating: 5,
+    postedAgo: "2 weeks ago",
     isPlaceholder: false,
   },
 ];

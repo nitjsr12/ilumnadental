@@ -21,7 +21,7 @@ export function AboutIntroSection() {
   const bannerScale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
 
   return (
-    <SectionShell className="relative overflow-hidden !pt-2">
+    <SectionShell variant="surface" className="relative overflow-hidden !pt-0">
       <div aria-hidden className="hero-noise pointer-events-none absolute inset-0 opacity-20" />
       <div aria-hidden className="brand-mesh pointer-events-none absolute inset-0 opacity-60" />
       <div
@@ -99,9 +99,9 @@ export function AboutIntroSection() {
               transition={{ delay: 0.35 }}
               className="absolute -bottom-2 right-0 z-10 rounded-2xl border border-gold/30 bg-surface/95 px-4 py-3 shadow-xl backdrop-blur-md sm:right-2"
             >
-              <div className="flex items-center gap-1 text-gold">
+              <div className="flex items-center gap-1 text-star">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-3 w-3 fill-gold" strokeWidth={0} aria-hidden />
+                  <Star key={i} className="h-3 w-3 fill-star" strokeWidth={0} aria-hidden />
                 ))}
               </div>
               <p className="text-xl font-semibold leading-none text-primary">

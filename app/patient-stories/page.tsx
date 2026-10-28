@@ -22,7 +22,7 @@ export default function PatientStoriesPage() {
       <PageBreadcrumbs
         items={[{ label: "Home", href: "/" }, { label: "Patient Stories" }]}
       />
-      <TestimonialsSection hideHeading />
+      <TestimonialsSection />
       <InnerPageFooter />
     </>
   );

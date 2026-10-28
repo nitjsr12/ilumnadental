@@ -16,8 +16,10 @@ import {
   WhyChooseFeatureCard,
   type WhyChooseFeature,
 } from "@/components/sections/why-choose-feature-card";
+import {
+  PremiumSectionHeader,
+} from "@/components/ui/premium-section-header";
 import { images } from "@/lib/images";
-import { fadeUp, staggerContainer } from "@/components/animations/variants";
 
 const CDN = "https://ilumnadental.in/wp-content/uploads/2026/08";
 
@@ -68,82 +70,83 @@ const features: WhyChooseFeature[] = [
 
 export function WhyChooseSection() {
   return (
-    <section className="section-container section-pad">
-      <div className="why-choose-panel relative overflow-hidden rounded-[1.75rem] lg:rounded-[2rem]">
-        <Image
-          src={images.consultation}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover transition-transform duration-[2s] ease-out hover:scale-105"
-          aria-hidden
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-br from-primary/92 via-[#0f2835]/88 to-primary/80"
-        />
-        <div
-          aria-hidden
-          className="why-choose-cubes pointer-events-none absolute bottom-8 left-6 h-28 w-28 opacity-70 lg:bottom-12 lg:left-10 lg:h-36 lg:w-36"
-        />
+    <section id="why-choose" className="section-pad relative overflow-x-clip">
+      <div className="hero-page-gutter relative z-10">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#021a33] via-[#04437f] to-[#0d6eb8] px-6 py-7 text-white shadow-[0_36px_88px_-40px_rgba(4,67,127,0.45)] ring-1 ring-inset ring-white/10 sm:px-10 sm:py-8 lg:rounded-[2rem] lg:px-12 lg:py-9">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.28)_1px,transparent_1px)] [background-size:22px_22px]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_15%_30%,rgba(5,162,164,0.22),transparent_55%),radial-gradient(ellipse_50%_45%_at_95%_70%,rgba(245,215,110,0.14),transparent_50%)]"
+          />
 
-        <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:gap-10 lg:p-10">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="relative z-10 text-white"
-          >
-            <motion.p variants={fadeUp} className="eyebrow mb-2 !text-white/85">
-              Why choose us
-            </motion.p>
-            <motion.h2
-              variants={fadeUp}
-              className="text-[clamp(1.5rem,2.75vw,2rem)] font-semibold leading-snug text-white"
-            >
-              Why Choose iLUMNA Dental?
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="mt-3 max-w-md text-base leading-relaxed text-white/75"
-            >
-              Advanced dentistry, personalized treatment, and exceptional care designed
-              around your long-term oral health.
-            </motion.p>
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+            <div className="flex flex-col justify-center lg:pe-4 xl:pe-8">
+              <PremiumSectionHeader
+                tone="dark"
+                badge="Why choose us"
+                align="left"
+                title={
+                  <>
+                    <span className="text-white">Why Choose </span>
+                    <span className="text-[#9dd4f5]">iLUMNA</span>
+                    <span className="text-[#f5d76e]"> Dental?</span>
+                  </>
+                }
+                description="Advanced dentistry, personalized treatment, and exceptional care designed around your long-term oral health."
+                className="max-w-lg !mx-0 !text-left"
+              />
 
-            <motion.div variants={fadeUp} className="mt-8">
-              <Link
-                href="/about"
-                className="group inline-flex items-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
-              >
-                <span className="relative flex h-14 w-14 items-center justify-center">
-                  <motion.span
-                    aria-hidden
-                    animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.85, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
-                    className="absolute inset-0 rounded-full border border-secondary/50"
-                  />
-                  <span
-                    aria-hidden
-                    className="absolute inset-0 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm"
-                  />
-                  <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-white shadow-lg shadow-secondary/40 transition-transform group-hover:scale-105">
-                    <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden />
+              <div className="mt-6 space-y-5 lg:mt-7">
+                <Link
+                  href="/about"
+                  className="group inline-flex items-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#f5d76e]"
+                >
+                  <span className="relative flex h-14 w-14 items-center justify-center">
+                    <motion.span
+                      aria-hidden
+                      animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.85, 0.5] }}
+                      transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}
+                      className="absolute inset-0 rounded-full border border-[#05a2a4]/50"
+                    />
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm"
+                    />
+                    <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[#05a2a4] text-white shadow-lg shadow-[#05a2a4]/40 transition-transform group-hover:scale-105">
+                      <Play className="ml-0.5 h-4 w-4 fill-current" aria-hidden />
+                    </span>
                   </span>
-                </span>
-                <span className="font-heading text-sm font-bold tracking-wide text-white group-hover:text-gold sm:text-base">
-                  About our clinic
-                </span>
-              </Link>
-            </motion.div>
-          </motion.div>
+                  <span className="font-heading text-sm font-bold tracking-wide text-white group-hover:text-[#f5d76e] sm:text-base">
+                    About our clinic
+                  </span>
+                </Link>
 
-          <ul className="grid grid-cols-1 gap-1 sm:grid-cols-2 sm:gap-x-3.5 sm:gap-y-0">
-            {features.map((f, i) => (
-              <WhyChooseFeatureCard key={f.title} feature={f} index={i} />
-            ))}
-          </ul>
+                <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/20 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.45)]">
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={images.consultation}
+                      alt="Dental care at iLUMNA Dental, Jayanagar"
+                      fill
+                      sizes="(max-width: 1024px) 80vw, 20rem"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#021a33]/80 via-transparent to-transparent" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex w-full items-center justify-center lg:justify-end">
+              <ul className="grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:max-w-none">
+                {features.map((f, i) => (
+                  <WhyChooseFeatureCard key={f.title} feature={f} index={i} />
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

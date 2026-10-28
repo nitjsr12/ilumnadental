@@ -40,7 +40,7 @@ export function TreatmentCard({
   return (
     <article
       className={cn(
-        "treatment-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gold/20 bg-surface shadow-[0_20px_50px_-28px_rgba(18,36,47,0.25)] transition-[box-shadow,border-color] duration-500 hover:border-secondary/35 hover:shadow-[0_28px_60px_-24px_rgba(18,36,47,0.28)]",
+        "treatment-card premium-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gold/20 bg-surface",
         className,
       )}
     >

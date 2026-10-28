@@ -74,7 +74,7 @@ export function CarouselArrowControls({
         onClick={onNext}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.96 }}
-        className="carousel-arrow-btn group flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary to-[#186b62] text-white shadow-md shadow-secondary/25 transition-shadow hover:shadow-lg hover:shadow-secondary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
+        className="carousel-arrow-btn group flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-secondary/25 bg-gradient-to-br from-secondary to-primary text-white shadow-md shadow-secondary/25 transition-shadow hover:shadow-lg hover:shadow-secondary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
         aria-label="Next slide"
       >
         <ChevronRight

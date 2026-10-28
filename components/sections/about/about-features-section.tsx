@@ -2,24 +2,20 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import {
-  HeartHandshake,
-  Sparkles,
-  Stethoscope,
-  UserRoundCheck,
-  type LucideIcon,
-} from "lucide-react";
 import { SectionShell } from "@/components/ui/section-shell";
-import { AboutIconBadge } from "@/components/sections/about/about-icon-badge";
+import {
+  PremiumSectionHeader,
+  PremiumTitleBlue,
+  PremiumTitleDark,
+  PremiumTitleGold,
+} from "@/components/ui/premium-section-header";
+import {
+  AnimatedSvgIcon,
+  type AnimatedIconName,
+} from "@/components/icons/animated-svg-icon";
 import { aboutFeatures } from "@/data/about-page";
-import { fadeUp, staggerContainer } from "@/components/animations/variants";
 
-const featureIcons: LucideIcon[] = [
-  Stethoscope,
-  Sparkles,
-  UserRoundCheck,
-  HeartHandshake,
-];
+const featureIcons: AnimatedIconName[] = ["tooth", "scan", "sparkle", "heart"];
 
 export function AboutFeaturesSection() {
   return (
@@ -30,24 +26,21 @@ export function AboutFeaturesSection() {
         className="pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-secondary/10 blur-3xl"
       />
 
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="relative mx-auto max-w-2xl text-center"
-      >
-        <motion.p variants={fadeUp} className="eyebrow mb-2">
-          {aboutFeatures.eyebrow}
-        </motion.p>
-        <motion.h2 variants={fadeUp} className="section-title">
-          {aboutFeatures.title}
-        </motion.h2>
-      </motion.div>
+      <PremiumSectionHeader
+        badge={aboutFeatures.eyebrow}
+        title={
+          <>
+            <PremiumTitleDark>We Offer the Best </PremiumTitleDark>
+            <PremiumTitleBlue>Dental </PremiumTitleBlue>
+            <PremiumTitleGold>Care</PremiumTitleGold>
+          </>
+        }
+        className="relative mx-auto"
+      />
 
       <ul className="relative mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {aboutFeatures.items.map((item, i) => {
-          const Icon = featureIcons[i] ?? Stethoscope;
+          const iconName = featureIcons[i] ?? "tooth";
           return (
             <motion.li
               key={item.title}
@@ -58,7 +51,7 @@ export function AboutFeaturesSection() {
               whileHover={{ y: -6 }}
               className="group list-none"
             >
-              <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-primary/10 bg-surface shadow-sm transition-shadow duration-300 group-hover:border-gold/35 group-hover:shadow-[0_20px_50px_-28px_rgba(18,36,47,0.22)]">
+              <div className="premium-card-surface flex h-full flex-col overflow-hidden transition-shadow duration-300 group-hover:shadow-[0_20px_50px_-28px_rgba(4,67,127,0.18)]">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={item.image}
@@ -69,7 +62,7 @@ export function AboutFeaturesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/55 via-primary/10 to-transparent" />
                   <div className="absolute bottom-3 left-3">
-                    <AboutIconBadge icon={Icon} tone="dark" />
+                    <AnimatedSvgIcon name={iconName} size="sm" tone="dark" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-5 sm:p-6">

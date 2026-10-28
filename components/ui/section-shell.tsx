@@ -10,10 +10,11 @@ type SectionShellProps = {
 
 const variants = {
   default: "bg-background",
-  muted: "bg-[#f1f5f8]",
-  surface: "bg-surface border-y border-primary/[0.06]",
+  muted: "premium-section-muted",
+  surface: "premium-section-surface",
 };
 
+/** Inner page section wrapper — matches homepage gutters and backgrounds */
 export function SectionShell({
   id,
   children,
@@ -22,8 +23,8 @@ export function SectionShell({
   variant = "default",
 }: SectionShellProps) {
   return (
-    <section id={id} className={cn("section-pad", variants[variant], className)}>
-      <div className={cn("section-container", innerClassName)}>{children}</div>
+    <section id={id} className={cn("section-pad relative overflow-x-clip", variants[variant], className)}>
+      <div className={cn("hero-page-gutter relative z-10", innerClassName)}>{children}</div>
     </section>
   );
 }

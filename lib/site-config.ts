@@ -15,8 +15,10 @@ export const siteConfig = {
   copyrightYear: 2026,
 
   logo: {
-    src: `${ILUMNA_CDN}/2026/10/ilumnalogo.png`,
-    alt: "iLUMNA Dental logo",
+    src: "/ilumna-logo.webp",
+    alt: "ILUMNA+ Advanced Dental Centre",
+    width: 651,
+    height: 383,
   },
 
   hero: {
@@ -36,6 +38,7 @@ export const siteConfig = {
     whatsapp: "+91 74114 11069",
     instagram: "@iLUMNADental",
     instagramUrl: "https://www.instagram.com/iLUMNADental",
+    email: "info@ilumnadental.in",
     address: {
       line1: "40, 32nd Cross Rd, 7th Block, Jayanagar",
       line2: "Bengaluru, Karnataka 560070",
@@ -88,12 +91,11 @@ export type NavLink = {
 
 export const mainNav: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
   {
-    label: "Treatments",
+    label: "Services",
     href: "/treatments",
     children: [
-      { label: "All Treatments", href: "/treatments" },
+      { label: "All Services", href: "/treatments" },
       {
         label: "Advanced Implant Dentistry",
         href: "/treatments/knee-pain-joint-care",
@@ -112,8 +114,8 @@ export const mainNav: NavLink[] = [
       },
     ],
   },
-  { label: "Patient Stories", href: "/patient-stories" },
-  { label: "Blog", href: "/blog" },
+  { label: "Our Team", href: "/about" },
+  { label: "Testimonials", href: "/patient-stories" },
   { label: "Contact", href: "/contact" },
 ];
 

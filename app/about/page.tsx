@@ -4,7 +4,6 @@ import { AboutIntroSection } from "@/components/sections/about/about-intro-secti
 import { AboutPhilosophySection } from "@/components/sections/about/about-philosophy-section";
 import { PageBreadcrumbs } from "@/components/layout/page-breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
-import { ClinicMapSection } from "@/components/sections/clinic-map-section";
 import { CtaBannerSection } from "@/components/sections/cta-banner-section";
 import { aboutCta } from "@/data/about-page";
 import { createPageMetadata } from "@/lib/metadata";
@@ -34,10 +33,10 @@ export default function AboutPage() {
       <CtaBannerSection
         eyebrow={aboutCta.eyebrow}
         title={aboutCta.title}
+        titleHighlight="Smile"
         description={aboutCta.description}
         showAddress={false}
       />
-      <ClinicMapSection />
     </>
   );
 }

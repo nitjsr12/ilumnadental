@@ -17,14 +17,14 @@ type ButtonProps = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-[background,box-shadow,transform] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary active:scale-[0.98]";
+  "btn-shimmer inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-[background,box-shadow,transform] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary hover:scale-[1.02] active:scale-[0.98]";
 
 const variants = {
   primary:
-    "bg-primary text-white shadow-[0_8px_24px_-8px_rgba(18,59,93,0.55)] hover:bg-[#0f3250]",
+    "bg-gradient-to-r from-brand-cta to-primary text-white shadow-[0_12px_32px_-12px_rgba(4,67,127,0.45)] hover:shadow-[0_16px_40px_-12px_rgba(5,162,164,0.4)]",
   secondary:
-    "border border-primary/12 bg-surface text-primary shadow-sm hover:border-primary/20 hover:bg-accent/60",
-  ghost: "text-primary hover:bg-accent/80",
+    "border border-primary/12 bg-surface text-primary shadow-sm hover:border-secondary/35 hover:bg-accent",
+  ghost: "rounded-lg text-primary hover:bg-accent/80 hover:scale-100",
 };
 
 export function Button({

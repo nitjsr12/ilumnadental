@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -10,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { cn, formatPhoneHref } from "@/lib/utils";
 
 const navLinkClass =
-  "group relative inline-flex items-center gap-1 rounded-md px-3.5 py-2.5 text-base font-medium text-foreground/90 transition-colors duration-200 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary lg:px-4 lg:text-[1.0625rem]";
+  "group relative inline-flex items-center gap-1 rounded-md px-3.5 py-2.5 text-base font-medium text-[#0d1b3e]/85 transition-colors duration-200 hover:text-[#1781be] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary lg:px-4 lg:text-[1.0625rem]";
 
 function NavHoverLine() {
   return (
@@ -22,6 +23,7 @@ function NavHoverLine() {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -54,8 +56,8 @@ export function SiteHeader() {
         className={cn(
           "sticky top-0 z-50 w-full border-b transition-[background,box-shadow,border-color] duration-300",
           scrolled
-            ? "border-primary/10 bg-surface/95 shadow-[0_4px_24px_rgba(18,36,47,0.08)] backdrop-blur-md"
-            : "border-transparent bg-background/85 backdrop-blur-sm",
+            ? "border-primary/8 bg-white/94 shadow-[0_10px_40px_-12px_rgba(4,67,127,0.14)] backdrop-blur-xl"
+            : "border-transparent bg-white/55 backdrop-blur-md",
         )}
       >
         <div
@@ -65,17 +67,23 @@ export function SiteHeader() {
           )}
           aria-hidden
         />
-        <div className="flex w-full max-w-none items-center gap-4 px-4 py-3.5 sm:px-6 lg:gap-6 lg:px-8 lg:py-4 xl:px-10">
+        <div
+          className={cn(
+            "hero-page-gutter flex w-full max-w-none items-center gap-4 lg:gap-6",
+            scrolled ? "py-3" : "py-3.5 lg:py-4",
+          )}
+        >
           <Link
             href="/"
-            className="relative block h-10 w-36 shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary sm:h-11 sm:w-40 lg:mr-2"
+            className="relative flex shrink-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary lg:mr-1"
           >
             <Image
               src={siteConfig.logo.src}
               alt={siteConfig.logo.alt}
-              fill
-              sizes="160px"
-              className="object-contain object-left"
+              width={siteConfig.logo.width}
+              height={siteConfig.logo.height}
+              sizes="(max-width: 640px) 112px, (max-width: 1024px) 128px, 152px"
+              className="h-auto w-[7rem] sm:w-[7.75rem] md:w-[8.25rem] lg:w-[8.75rem] xl:w-[9.25rem]"
               priority
             />
           </Link>
@@ -140,6 +148,15 @@ export function SiteHeader() {
                   <span className="transition-transform duration-200 group-hover:-translate-y-px">
                     {item.label}
                   </span>
+                  {(item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href)) && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      className="absolute inset-x-2 bottom-1 h-0.5 rounded-full bg-brand-cta"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                   <NavHoverLine />
                 </Link>
               ),

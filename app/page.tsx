@@ -8,7 +8,6 @@ import { TestimonialsSection } from "@/components/sections/testimonials-section"
 import { FaqSection } from "@/components/sections/faq-section";
 import { BlogSection } from "@/components/sections/blog-section";
 import { CtaBannerSection } from "@/components/sections/cta-banner-section";
-import { ClinicMapSection } from "@/components/sections/clinic-map-section";
 
 export default function HomePage() {
   return (
@@ -23,7 +22,6 @@ export default function HomePage() {
       <FaqSection />
       <BlogSection />
       <CtaBannerSection />
-      <ClinicMapSection />
     </>
   );
 }

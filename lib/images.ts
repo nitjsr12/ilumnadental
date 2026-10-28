@@ -2,7 +2,7 @@ const CDN = "https://ilumnadental.in/wp-content/uploads";
 
 /** Official iLUMNA Dental media from ilumnadental.in */
 export const images = {
-  logo: `${CDN}/2026/10/ilumnalogo.png`,
+  logo: "/ilumna-logo.webp",
   heroPrimary: `${CDN}/2026/10/DSC03251-scaled.jpg`,
   heroSecondary: `${CDN}/2026/10/DSC03437-scaled.jpg`,
   clinicInterior: `${CDN}/2026/10/DSC03385-scaled.jpg`,

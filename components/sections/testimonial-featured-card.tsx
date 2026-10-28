@@ -52,7 +52,7 @@ export function TestimonialFeaturedCard({ reviewCount }: { reviewCount: number }
       </div>
 
       <div className="mt-6 flex items-center gap-2">
-        <span className="flex gap-0.5 text-gold" aria-hidden>
+        <span className="flex gap-0.5 text-star" aria-hidden>
           {Array.from({ length: 5 }).map((_, i) => (
             <Star key={i} className="h-4 w-4 fill-current" strokeWidth={0} />
           ))}

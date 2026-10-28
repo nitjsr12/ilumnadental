@@ -17,7 +17,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { fadeUp, staggerContainer } from "@/components/animations/variants";
+import {
+  PremiumSectionHeader,
+  PremiumTitleBlue,
+  PremiumTitleDark,
+  PremiumTitleGold,
+} from "@/components/ui/premium-section-header";
 import { cn } from "@/lib/utils";
 
 const steps: {
@@ -59,39 +64,33 @@ export function PatientJourneySection() {
   const lineScale = useTransform(scrollYProgress, [0, 1], [0.08, 1]);
 
   return (
-    <section className="journey-section relative overflow-hidden section-pad">
-      <div aria-hidden className="hero-noise pointer-events-none absolute inset-0 opacity-20" />
+    <section
+      id="journey"
+      className="premium-section-surface relative overflow-x-clip section-pad"
+    >
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-72 w-[120%] -translate-x-1/2 bg-gradient-to-b from-secondary/8 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_100%_0%,rgba(227,242,253,0.8),transparent_55%)]"
       />
 
-      <div ref={trackRef} className="section-container relative">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <motion.p variants={fadeUp} className="eyebrow mb-2">
-            Your journey · 4 steps
-          </motion.p>
+      <div ref={trackRef} className="hero-page-gutter relative z-10">
+        <PremiumSectionHeader
+          badge="Your journey · 4 steps"
+          title={
+            <>
+              <PremiumTitleDark>From First Visit to </PremiumTitleDark>
+              <PremiumTitleBlue>Confident </PremiumTitleBlue>
+              <PremiumTitleGold>Smiles</PremiumTitleGold>
+            </>
+          }
+          description="A clear, comfortable path through consultation, planning, and personalized dental care."
+        />
 
-          <motion.h2 variants={fadeUp} className="section-title">
-            From first visit to confident smiles
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-lead mx-auto mt-3 max-w-xl">
-            A clear, comfortable path through consultation, planning, and personalized
-            dental care.
-          </motion.p>
-        </motion.div>
-
-        <div className="relative mt-8 hidden lg:block">
-          <div className="absolute left-[12.5%] right-[12.5%] top-[2.75rem] h-1 overflow-hidden rounded-full bg-primary/10">
+        <div className="relative mt-8 hidden lg:block xl:mt-9">
+          <div className="absolute left-[12.5%] right-[12.5%] top-[2.75rem] h-1 overflow-hidden rounded-full bg-[#04437f]/10">
             <motion.div
               style={{ scaleX: lineScale }}
-              className="h-full w-full origin-left rounded-full bg-gradient-to-r from-secondary via-secondary to-gold"
+              className="h-full w-full origin-left rounded-full bg-gradient-to-r from-[#05a2a4] via-[#1781be] to-[#d4af37]"
             />
           </div>
 
@@ -112,24 +111,24 @@ export function PatientJourneySection() {
                   <button
                     type="button"
                     onClick={() => setActive(i)}
-                    className="group w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+                    className="group w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1781be]"
                   >
                     <div className="relative flex flex-col items-center pb-2 pt-0">
                       <motion.span
                         animate={
                           isActive
-                            ? { scale: 1.08, boxShadow: "0 0 0 4px rgba(31,122,111,0.2)" }
-                            : { scale: 1, boxShadow: "0 0 0 0px rgba(31,122,111,0)" }
+                            ? { scale: 1.08, boxShadow: "0 0 0 4px rgba(23,129,190,0.2)" }
+                            : { scale: 1, boxShadow: "0 0 0 0px rgba(23,129,190,0)" }
                         }
                         className={cn(
-                          "journey-step-icon relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors duration-300",
+                          "relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors duration-300",
                           isActive
-                            ? "bg-secondary text-white"
-                            : "bg-surface text-secondary ring-1 ring-gold/25 group-hover:bg-secondary/10",
+                            ? "bg-[#1781be] text-white shadow-lg shadow-[#1781be]/30"
+                            : "bg-white text-[#1781be] ring-1 ring-[#04437f]/10 group-hover:bg-[#e8f4fc]",
                         )}
                       >
                         <Icon className="h-6 w-6" strokeWidth={1.65} aria-hidden />
-                        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold text-[0.55rem] font-bold text-primary">
+                        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#d4af37] text-[0.55rem] font-bold text-[#04437f]">
                           {indexLabel}
                         </span>
                       </motion.span>
@@ -138,37 +137,33 @@ export function PatientJourneySection() {
                     <motion.div
                       layout
                       className={cn(
-                        "journey-step-card mt-5 rounded-2xl border p-5 transition-shadow duration-300",
-                        isActive
-                          ? "border-secondary/35 bg-surface shadow-[0_20px_50px_-24px_rgba(18,36,47,0.2)]"
-                          : "border-primary/10 bg-surface/80 group-hover:border-gold/30 group-hover:shadow-lg",
+                        "premium-card-surface mt-5 p-5 transition-shadow duration-300",
+                        isActive && "ring-1 ring-[#1781be]/25 shadow-[0_28px_64px_-32px_rgba(4,67,127,0.2)]",
                       )}
                     >
-                      <p className="mb-1 text-xs text-secondary">Step {i + 1}</p>
-                      <h3 className="text-base font-semibold text-foreground">
-                        {step.title}
-                      </h3>
+                      <p className="mb-1 text-xs font-semibold text-[#1781be]">Step {i + 1}</p>
+                      <h3 className="text-base font-bold text-[#0d1b3e]">{step.title}</h3>
                       <AnimatePresence mode="wait">
                         {isActive && (
                           <motion.p
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="mt-2 overflow-hidden text-sm leading-relaxed text-muted"
+                            className="mt-2 overflow-hidden text-sm leading-relaxed text-[#64748b]"
                           >
                             {step.text}
                           </motion.p>
                         )}
                       </AnimatePresence>
                       {!isActive && (
-                        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted/80">
+                        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#64748b]/90">
                           {step.text}
                         </p>
                       )}
                       {step.href && isActive && (
                         <Link
                           href={step.href}
-                          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-secondary hover:text-primary"
+                          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#1781be] hover:text-[#04437f]"
                         >
                           Book now
                           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -182,7 +177,7 @@ export function PatientJourneySection() {
           </ol>
         </div>
 
-        <ol className="relative mt-10 space-y-4 lg:hidden">
+        <ol className="relative mt-8 space-y-4 lg:hidden">
           {steps.map((step, i) => {
             const Icon = step.icon;
             const isActive = active === i;
@@ -192,34 +187,32 @@ export function PatientJourneySection() {
                   type="button"
                   onClick={() => setActive(isActive ? -1 : i)}
                   className={cn(
-                    "journey-step-card flex w-full gap-4 rounded-2xl border p-4 text-left transition-all",
-                    isActive
-                      ? "border-secondary/35 bg-surface shadow-md"
-                      : "border-primary/10 bg-surface/90",
+                    "premium-card-surface flex w-full gap-4 p-4 text-left transition-all",
+                    isActive && "ring-1 ring-[#1781be]/25",
                   )}
                 >
                   <span
                     className={cn(
-                      "journey-step-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-xl",
-                      isActive ? "bg-secondary text-white" : "bg-accent text-secondary",
+                      "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl",
+                      isActive ? "bg-[#1781be] text-white" : "bg-[#e8f4fc] text-[#1781be]",
                     )}
                   >
                     <Icon className="h-5 w-5" strokeWidth={1.65} aria-hidden />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="mb-1 text-xs text-secondary">Step {i + 1}</p>
-                    <h3 className="text-base font-semibold">{step.title}</h3>
+                    <p className="mb-1 text-xs font-semibold text-[#1781be]">Step {i + 1}</p>
+                    <h3 className="text-base font-bold text-[#0d1b3e]">{step.title}</h3>
                     <motion.p
                       initial={false}
                       animate={{ opacity: isActive ? 1 : 0.75 }}
-                      className="mt-1 text-sm text-muted"
+                      className="mt-1 text-sm text-[#64748b]"
                     >
                       {step.text}
                     </motion.p>
                     {step.href && isActive && (
                       <Link
                         href={step.href}
-                        className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-secondary"
+                        className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-[#1781be]"
                       >
                         Book now
                         <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -233,12 +226,12 @@ export function PatientJourneySection() {
         </ol>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 1, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-8 flex justify-center"
         >
-          <Button href="/book-appointment" showArrow className="btn-shimmer">
+          <Button href="/book-appointment" showArrow className="hero-cta-primary !px-8 !py-3.5">
             Start your journey
           </Button>
         </motion.div>

@@ -1,32 +1,30 @@
-import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
+"use client";
 
-const sizes = {
-  sm: { box: "h-9 w-9", icon: "h-4 w-4" },
-  md: { box: "h-11 w-11", icon: "h-5 w-5" },
-  lg: { box: "h-14 w-14", icon: "h-6 w-6" },
+import { InteractiveIcon } from "@/components/ui/interactive-icon";
+import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const sizeMap = {
+  sm: "sm" as const,
+  md: "md" as const,
+  lg: "lg" as const,
 };
 
 export function IconBox({
-  icon: Icon,
+  icon,
   size = "md",
   className,
 }: {
   icon: LucideIcon;
-  size?: keyof typeof sizes;
+  size?: keyof typeof sizeMap;
   className?: string;
 }) {
-  const s = sizes[size];
   return (
-    <span
-      className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-lg bg-accent text-secondary",
-        s.box,
-        className,
-      )}
-      aria-hidden
-    >
-      <Icon className={s.icon} strokeWidth={1.75} />
-    </span>
+    <InteractiveIcon
+      icon={icon}
+      size={sizeMap[size]}
+      className={cn(className)}
+      tone={className?.includes("text-white") ? "dark" : "light"}
+    />
   );
 }
