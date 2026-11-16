@@ -38,10 +38,10 @@ export function SplashAnimatedLogo({ progress = 0 }: SplashAnimatedLogoProps) {
       )}
 
       <motion.div
-        className="splash-v2-logo-panel"
-        initial={{ scale: reduceMotion ? 1 : 0.96 }}
+        className="splash-v2-logo-float relative z-[1]"
+        initial={{ scale: reduceMotion ? 1 : 0.97 }}
         animate={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 180, damping: 24, delay: 0.08 }}
+        transition={{ type: "spring", stiffness: 200, damping: 26, delay: 0.06 }}
       >
         <Image
           src={siteConfig.logo.src}
@@ -50,7 +50,7 @@ export function SplashAnimatedLogo({ progress = 0 }: SplashAnimatedLogoProps) {
           height={siteConfig.logo.height}
           priority
           sizes="(max-width: 640px) 300px, 340px"
-          className="relative z-[1] h-auto w-[min(78vw,15.5rem)] sm:w-[17.5rem]"
+          className="splash-v2-logo-image h-auto w-[min(82vw,16.5rem)] sm:w-[18rem]"
         />
       </motion.div>
     </motion.div>

@@ -5,11 +5,14 @@ import Link from "next/link";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { treatments } from "@/data/treatments";
+import { Reveal, StaggerItem, StaggerReveal } from "@/components/animations/reveal";
+import { FooterSocialLinks } from "@/components/layout/footer-social-links";
 import { formatPhoneHref } from "@/lib/utils";
 
 const usefulLinks = [
   { label: "Home", href: "/" },
   { label: "Our Team", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/patient-stories" },
   { label: "Contact Us", href: "/contact" },
 ] as const;
@@ -40,7 +43,7 @@ function FooterLinkList({
 }
 
 export function SiteFooter() {
-  const { contact, social } = siteConfig;
+  const { contact } = siteConfig;
   const address = `${contact.address.line1}, ${contact.address.line2}`;
 
   return (
@@ -51,8 +54,8 @@ export function SiteFooter() {
       />
 
       <div className="hero-page-gutter relative z-10 pt-9 pb-6 sm:pt-10 sm:pb-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
-          <div className="lg:col-span-3">
+        <StaggerReveal className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+          <StaggerItem className="lg:col-span-3">
             <Link href="/" className="inline-block">
               <div className="inline-flex rounded-xl bg-white px-3 py-2.5">
                 <Image
@@ -69,34 +72,15 @@ export function SiteFooter() {
               Providing premium dental care with advanced technology and a gentle touch in
               Jayanagar, Bengaluru.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              <a
-                href={contact.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-colors hover:border-[#05a2a4] hover:bg-white/15"
-                aria-label="Instagram"
-              >
-                <span className="text-xs font-bold">IG</span>
-              </a>
-              <a
-                href={social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-colors hover:border-[#05a2a4] hover:bg-white/15"
-                aria-label="Facebook"
-              >
-                <span className="text-xs font-bold">f</span>
-              </a>
-            </div>
-          </div>
+            <FooterSocialLinks className="mt-5" />
+          </StaggerItem>
 
-          <div className="lg:col-span-2">
+          <StaggerItem className="lg:col-span-2">
             <p className="text-base font-bold text-white">Useful Links</p>
             <FooterLinkList items={usefulLinks} />
-          </div>
+          </StaggerItem>
 
-          <div className="lg:col-span-4">
+          <StaggerItem className="lg:col-span-4">
             <p className="text-base font-bold text-white">Our Services</p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2 sm:gap-x-4">
               {treatments.map((t) => (
@@ -114,9 +98,9 @@ export function SiteFooter() {
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
-          <div className="lg:col-span-3">
+          <StaggerItem className="lg:col-span-3">
             <p className="text-base font-bold text-white">Contact Us</p>
             <ul className="mt-4 space-y-4 text-sm text-white/85">
               <li className="flex gap-3">
@@ -146,10 +130,11 @@ export function SiteFooter() {
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerReveal>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm sm:flex-row sm:items-center sm:px-8 lg:mt-12">
+        <Reveal preset="fadeUpLite" className="mt-10 lg:mt-12">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm sm:flex-row sm:items-center sm:px-8">
           <div>
             <p className="text-lg font-bold text-white sm:text-xl">
               Unlock Your Beautiful{" "}
@@ -167,12 +152,13 @@ export function SiteFooter() {
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
+        </Reveal>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/60 sm:text-sm">
+        <Reveal preset="fadeIn" className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-white/60 sm:text-sm">
           <p>
             © {siteConfig.copyrightYear} {siteConfig.name}. All rights reserved.
           </p>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

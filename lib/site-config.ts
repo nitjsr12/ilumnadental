@@ -46,6 +46,9 @@ export const siteConfig = {
     },
     mapLink:
       "https://maps.google.com/?q=40+32nd+Cross+Rd+7th+Block+Jayanagar+Bengaluru+560070",
+    /** Google Search reviews for the practice (stable q + si; omit session params). */
+    googleReviewsUrl:
+      "https://www.google.com/search?q=ilumna+dental+%7C+dr.+inchara+vadegadde+bengaluru+reviews&si=AE1YtOqiKPb2pdLXAi8quZ9vbH4aVq_aX8-3H9iFBLpRNK95c5WFBM6vu3bMiUiIPasTmgR2ZzKhBHSzBFhSudUTfBAgwvLSQ8pS2d9PMNn2RMnHoRIEPnvfK1HATUEkKOs-J83561cLbeIZJ3cU66aomoc27Af316g_Kx5HH9m7mfIaWgcYmtk%3D",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.152!2d77.573!3d12.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSmF5YW5hZ2Fy!5e0!3m2!1sen!2sin!4v1",
     hours: [{ days: "Opens daily", time: "9:30 AM – 10:00 PM" }],
@@ -73,8 +76,8 @@ export const siteConfig = {
   },
 
   social: {
-    facebook: "https://ilumnadental.in/",
     instagram: "https://www.instagram.com/iLUMNADental",
+    youtube: "https://www.youtube.com/@ILUMNADental",
     linkedin: "#",
   },
 
@@ -115,6 +118,7 @@ export const mainNav: NavLink[] = [
     ],
   },
   { label: "Our Team", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/patient-stories" },
   { label: "Contact", href: "/contact" },
 ];

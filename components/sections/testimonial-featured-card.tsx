@@ -65,7 +65,7 @@ export function TestimonialFeaturedCard({ reviewCount }: { reviewCount: number }
       </p>
 
       <Link
-        href={contact.mapLink}
+        href={contact.googleReviewsUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"

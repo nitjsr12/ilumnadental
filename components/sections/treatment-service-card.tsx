@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Treatment } from "@/data/treatments";
 import { cn } from "@/lib/utils";
 
@@ -12,17 +13,13 @@ type TreatmentServiceCardProps = {
 };
 
 export function TreatmentServiceCard({ treatment, className }: TreatmentServiceCardProps) {
+  const reduceMotion = useReducedMotion();
   const shortName = treatment.title.replace(/\s+/g, " ").trim();
   const ctaLabel =
     shortName.length > 28 ? "View service details" : `View ${shortName} details`;
 
-  return (
-    <article
-      className={cn(
-        "treatment-service-card group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white",
-        className,
-      )}
-    >
+  const card = (
+    <>
       <div className="treatment-service-card-media relative aspect-[4/3] overflow-hidden rounded-t-2xl">
         <div className="treatment-service-card-icon-panel absolute inset-0 z-[1] flex items-center justify-center p-4 sm:p-5">
           <Image
@@ -61,6 +58,25 @@ export function TreatmentServiceCard({ treatment, className }: TreatmentServiceC
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
         </Link>
       </div>
-    </article>
+    </>
+  );
+
+  const classes = cn(
+    "treatment-service-card group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white",
+    className,
+  );
+
+  if (reduceMotion) {
+    return <article className={classes}>{card}</article>;
+  }
+
+  return (
+    <motion.article
+      whileHover={{ y: -6, transition: { type: "spring", stiffness: 380, damping: 26 } }}
+      whileTap={{ scale: 0.992 }}
+      className={classes}
+    >
+      {card}
+    </motion.article>
   );
 }

@@ -9,21 +9,16 @@ import {
   PremiumTitleDark,
   PremiumTitleGold,
 } from "@/components/ui/premium-section-header";
-import { blogPosts } from "@/data/blog";
+import { blogPostHref, blogPosts } from "@/data/blog";
 import { Button } from "@/components/ui/button";
+import { fadeUpLite, staggerContainer } from "@/components/animations/variants";
 
-function postHref(post: (typeof blogPosts)[number]) {
-  return post.externalUrl ?? `/blog#${post.slug}`;
-}
+const HOME_POST_COUNT = 3;
 
-type BlogSectionProps = {
-  /** Add slug anchors for /blog deep links */
-  withPostAnchors?: boolean;
-};
-
-export function BlogSection({ withPostAnchors = false }: BlogSectionProps) {
-  const featured = blogPosts.find((p) => p.featured) ?? blogPosts[0];
-  const rest = blogPosts.filter((p) => p.slug !== featured.slug);
+export function BlogSection() {
+  const ordered = [...blogPosts].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  const [featured, ...others] = ordered;
+  const sidePosts = others.slice(0, HOME_POST_COUNT - 1);
 
   return (
     <section id="blog" className="premium-section-surface relative overflow-x-clip section-pad">
@@ -40,10 +35,10 @@ export function BlogSection({ withPostAnchors = false }: BlogSectionProps) {
                 <PremiumTitleGold>Decisions</PremiumTitleGold>
               </>
             }
-            description="Insights from iLUMNA Dental — visit our blog for the latest articles."
+            description="Articles on treatments, prevention, and patient guides from iLUMNA Dental, Jayanagar."
           />
           <Button
-            href="https://ilumnadental.in/blog/"
+            href="/blog"
             variant="secondary"
             className="shrink-0 self-start rounded-full border-[#1781be]/25 !px-6"
             showArrow
@@ -52,13 +47,17 @@ export function BlogSection({ withPostAnchors = false }: BlogSectionProps) {
           </Button>
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:gap-8 xl:mt-9">
-          <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 28 }}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={staggerContainer}
+          className="mt-8 grid gap-6 lg:grid-cols-2 lg:gap-8 xl:mt-9"
+        >
+          <motion.div variants={fadeUpLite} whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 400, damping: 28 }}>
             <Link
-              href={postHref(featured)}
-              target={featured.externalUrl ? "_blank" : undefined}
-              rel={featured.externalUrl ? "noopener noreferrer" : undefined}
-              className="premium-card-surface group block overflow-hidden transition-shadow hover:shadow-[0_32px_72px_-36px_rgba(4,67,127,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1781be]"
+              href={blogPostHref(featured)}
+              className="premium-card-surface group block h-full overflow-hidden transition-shadow hover:shadow-[0_32px_72px_-36px_rgba(4,67,127,0.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1781be]"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -82,18 +81,15 @@ export function BlogSection({ withPostAnchors = false }: BlogSectionProps) {
           </motion.div>
 
           <div className="flex flex-col gap-4">
-            {rest.map((post) => (
+            {sidePosts.map((post) => (
               <motion.div
                 key={post.slug}
-                id={withPostAnchors ? post.slug : undefined}
-                className={withPostAnchors ? "scroll-mt-28" : undefined}
+                variants={fadeUpLite}
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               >
                 <Link
-                  href={postHref(post)}
-                  target={post.externalUrl ? "_blank" : undefined}
-                  rel={post.externalUrl ? "noopener noreferrer" : undefined}
+                  href={blogPostHref(post)}
                   className="premium-card-surface group flex gap-4 p-4 transition-shadow hover:shadow-[0_20px_48px_-28px_rgba(4,67,127,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1781be]"
                 >
                   <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl">
@@ -118,7 +114,7 @@ export function BlogSection({ withPostAnchors = false }: BlogSectionProps) {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

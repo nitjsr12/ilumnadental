@@ -62,7 +62,7 @@ export function TestimonialsSection({ hideHeading = false }: { hideHeading?: boo
               className="mx-auto mt-5 max-w-3xl text-center"
             >
               <Link
-                href={siteConfig.contact.mapLink}
+                href={siteConfig.contact.googleReviewsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-base font-semibold text-[#1781be] transition-colors hover:text-[#04437f]"

@@ -1,7 +1,7 @@
 import { PageBreadcrumbs } from "@/components/layout/page-breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { InnerPageFooter } from "@/components/layout/inner-page-footer";
-import { BlogSection } from "@/components/sections/blog-section";
+import { BlogListingSection } from "@/components/sections/blog-listing-section";
 import { createPageMetadata } from "@/lib/metadata";
 import { images } from "@/lib/images";
 
@@ -20,7 +20,7 @@ export default function BlogPage() {
         imageSrc={images.consultation}
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
-      <BlogSection withPostAnchors />
+      <BlogListingSection />
       <InnerPageFooter />
     </>
   );

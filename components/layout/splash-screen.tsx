@@ -44,14 +44,16 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
 
           <div className="relative z-10 flex min-h-dvh flex-col">
             <div className="flex flex-1 flex-col items-center justify-center px-6 pb-6 pt-8 sm:px-10 sm:pt-10">
-              <SplashAnimatedLogo progress={progress} />
-              <SplashHeroVisual />
+              <div className="splash-v2-hero-cluster flex w-full max-w-md flex-col items-center">
+                <SplashAnimatedLogo progress={progress} />
+                <SplashHeroVisual />
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.55, duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-6 max-w-md text-center sm:mt-8"
+                className="mt-5 max-w-md text-center sm:mt-6"
               >
                 <p className="splash-v2-eyebrow splash-v2-eyebrow--dark">Preparing your smile journey</p>
                 <h1 className="splash-v2-headline splash-v2-headline--dark">Sparkling care awaits</h1>

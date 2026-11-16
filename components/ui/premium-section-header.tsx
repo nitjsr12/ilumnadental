@@ -8,10 +8,11 @@ import { cn } from "@/lib/utils";
 import { staggerContainer } from "@/components/animations/variants";
 
 const reveal: Variants = {
-  hidden: { opacity: 1, y: 14 },
+  hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },
 };

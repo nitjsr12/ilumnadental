@@ -63,7 +63,7 @@ export function AboutPhilosophySection() {
             }
           />
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-10">
             {aboutPhilosophy.gallery.map((photo, i) => (
               <motion.div
                 key={photo.src}
@@ -72,10 +72,10 @@ export function AboutPhilosophySection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
                 className={cn(
-                  "relative overflow-hidden rounded-2xl border border-primary/10 shadow-md",
-                  i === 0 && "col-span-2 aspect-[16/10]",
-                  i === 1 && "aspect-square",
-                  i === 2 && "aspect-square -mt-6 sm:-mt-8",
+                  "relative min-h-0 overflow-hidden rounded-2xl border border-primary/10 shadow-md",
+                  i === 0 && "col-span-2 aspect-[16/10] w-full",
+                  i === 1 && "aspect-[4/3] w-full",
+                  i === 2 && "aspect-[4/3] w-full",
                 )}
               >
                 <Image

@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 import { formatPhoneHref } from "@/lib/utils";
 import { staggerContainer } from "@/components/animations/variants";
 
-const CTA_BADGE_SRC = "/cta-dental-badge.png";
+const CTA_HERO_SRC = "/cta-brush-hero.jpg";
 
 const BADGE_SPARKLES = [
   { className: "left-[6%] top-[32%]", delay: 0 },
@@ -50,41 +50,29 @@ function renderTitle(title: string, highlight: string) {
   );
 }
 
-function CtaDentalBadge({ reduceMotion }: { reduceMotion: boolean | null }) {
+function CtaHeroVisual({ reduceMotion }: { reduceMotion: boolean | null }) {
   return (
-    <div className="relative mx-auto w-[min(100%,15rem)] sm:w-[17rem] lg:mx-0 lg:w-[19rem]">
+    <div className="cta-hero-visual relative mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-md lg:mx-0 lg:max-w-[26rem]">
       <motion.div
         aria-hidden
         animate={
           reduceMotion
             ? undefined
-            : { scale: [1, 1.1, 1], opacity: [0.35, 0.6, 0.35] }
+            : { opacity: [0.35, 0.55, 0.35], scale: [0.96, 1.02, 0.96] }
         }
-        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-[2%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.4)_0%,rgba(5,162,164,0.25)_40%,transparent_72%)] blur-md"
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.35)_0%,rgba(5,162,164,0.2)_45%,transparent_70%)] blur-xl"
       />
-
-      {!reduceMotion && (
-        <motion.div
-          aria-hidden
-          animate={{ rotate: 360 }}
-          transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div className="aspect-square h-[94%] w-[94%] rounded-full border border-dashed border-white/30" />
-        </motion.div>
-      )}
 
       {!reduceMotion &&
         BADGE_SPARKLES.map(({ className, delay }, i) => (
           <motion.span
             key={i}
             aria-hidden
-            className={`pointer-events-none absolute ${className}`}
+            className={`pointer-events-none absolute z-[2] ${className}`}
             animate={{
-              opacity: [0.2, 1, 0.2],
-              scale: [0.85, 1.15, 0.85],
-              rotate: [0, 18, 0],
+              opacity: [0.15, 0.7, 0.15],
+              scale: [0.85, 1.1, 0.85],
             }}
             transition={{
               duration: 2.4,
@@ -93,7 +81,7 @@ function CtaDentalBadge({ reduceMotion }: { reduceMotion: boolean | null }) {
               delay,
             }}
           >
-            <Sparkles className="h-4 w-4 text-white sm:h-5 sm:w-5" strokeWidth={2} />
+            <Sparkles className="h-4 w-4 text-white/90 sm:h-5 sm:w-5" strokeWidth={2} />
           </motion.span>
         ))}
 
@@ -101,28 +89,23 @@ function CtaDentalBadge({ reduceMotion }: { reduceMotion: boolean | null }) {
         animate={
           reduceMotion
             ? undefined
-            : {
-                y: [0, -14, 0],
-                rotate: [-1.5, 1.5, -1.5],
-              }
+            : { y: [0, -10, 0], rotate: [-0.6, 0.6, -0.6] }
         }
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-        className="relative"
+        className="cta-hero-art-wrap relative"
       >
-        <motion.div
-          animate={reduceMotion ? undefined : { scale: [1, 1.03, 1] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-        >
-          <Image
-            src={CTA_BADGE_SRC}
-            alt="Dental aligners and smile care at iLUMNA Dental"
-            width={640}
-            height={640}
-            sizes="(max-width: 1024px) 45vw, 19rem"
-            className="relative h-auto w-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
-            priority={false}
-          />
-        </motion.div>
+        <Image
+          src={CTA_HERO_SRC}
+          alt="Fresh smile care illustration"
+          width={1024}
+          height={558}
+          sizes="(max-width: 1024px) 92vw, 416px"
+          className="cta-hero-art relative z-[1] h-auto w-full select-none"
+          draggable={false}
+          priority={false}
+        />
+        <span className="cta-hero-art-vignette pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+        <span className="cta-hero-art-tint pointer-events-none absolute inset-0 z-[3]" aria-hidden />
       </motion.div>
     </div>
   );
@@ -241,7 +224,7 @@ export function CtaBannerSection({
             </div>
 
             <motion.div variants={ctaReveal} className="flex justify-center lg:justify-end">
-              <CtaDentalBadge reduceMotion={reduceMotion} />
+              <CtaHeroVisual reduceMotion={reduceMotion} />
             </motion.div>
           </div>
         </div>

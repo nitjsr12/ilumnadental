@@ -9,7 +9,7 @@ import {
   PremiumTitleDark,
   PremiumTitleGold,
 } from "@/components/ui/premium-section-header";
-import { fadeUp, staggerContainer } from "@/components/animations/variants";
+import { fadeUpLite, staggerContainer } from "@/components/animations/variants";
 
 export function TreatmentsSection() {
   return (
@@ -45,7 +45,7 @@ export function TreatmentsSection() {
           {treatments.map((treatment) => (
             <motion.li
               key={treatment.slug}
-              variants={fadeUp}
+              variants={fadeUpLite}
               className="min-h-0 overflow-visible"
             >
               <TreatmentServiceCard treatment={treatment} />
