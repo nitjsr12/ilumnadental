@@ -30,7 +30,8 @@ export const patientTrustContent = {
   description: "Where trust in Jayanagar turns into confident, lasting smiles.",
   imageCaption: "Rated by patients after visiting our clinic.",
   googleBadge: `${siteConfig.doctor.googleRating}`,
-  googleCountLabel: "50+",
+  /** Animated chip on hero image (marketing count; suffix "+" added in UI) */
+  googleReviewCount: 50,
 } as const;
 
 export const patientTrustChannels: PatientTrustChannel[] = [
