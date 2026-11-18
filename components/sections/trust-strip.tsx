@@ -10,6 +10,7 @@ import {
   type AnimatedIconName,
 } from "@/components/icons/animated-svg-icon";
 import { cn } from "@/lib/utils";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const icons: Record<TrustStat["icon"], AnimatedIconName> = {
   calendar: "calendar",
@@ -27,8 +28,9 @@ export function TrustStrip() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1781be]/40 to-transparent"
       />
+      <FlyingDentalDecor density="soft" />
 
-      <div className="hero-page-gutter relative py-5 sm:py-6">
+      <div className="hero-page-gutter relative z-10 py-5 sm:py-6">
         <motion.div
           initial={{ opacity: 1, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -35,7 +35,7 @@ export default async function TreatmentDetailPage({ params }: Props) {
       <PageHero
         eyebrow={treatment.category}
         title={treatment.title}
-        imageSrc={treatment.image}
+        banner="treatment"
         priority
       />
       <PageBreadcrumbs

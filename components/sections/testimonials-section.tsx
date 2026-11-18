@@ -13,6 +13,7 @@ import {
   PremiumTitleDark,
   PremiumTitleGold,
 } from "@/components/ui/premium-section-header";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const TestimonialCarousel = dynamic(
   () =>
@@ -40,6 +41,7 @@ export function TestimonialsSection({ hideHeading = false }: { hideHeading?: boo
       className="premium-section-muted section-pad relative overflow-x-clip"
     >
       <div aria-hidden className="testimonials-premium-bg pointer-events-none absolute inset-0" />
+      <FlyingDentalDecor density="medium" />
 
       <div className="hero-page-gutter relative z-10">
         {!hideHeading && (

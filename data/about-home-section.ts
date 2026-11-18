@@ -27,7 +27,7 @@ export const aboutHomeFeatures: AboutHomeFeature[] = [
     icon: Microscope,
     tone: "blue",
     image: images.consultation,
-    imageAlt: "Digital dental consultation at iLUMNA Dental",
+    imageAlt: "Modern iLUMNA Dental treatment room",
   },
   {
     title: "Implant & aesthetic expertise",
@@ -58,7 +58,7 @@ export const aboutHomeFeatures: AboutHomeFeature[] = [
     detail: "Warm communication and a comfortable environment at every visit.",
     icon: HandHeart,
     tone: "amber",
-    image: images.aboutClinic,
+    image: images.whyChooseChair,
     imageAlt: "Patient-friendly care at iLUMNA Dental",
   },
   {
@@ -79,8 +79,8 @@ export const aboutHomeChecklist = [
 ] as const;
 
 export const aboutHomeGallery = {
-  primary: images.doctorPortrait,
-  primaryAlt: "Dr. Inchara Vadegadde, iLUMNA Dental",
-  secondary: images.aboutClinic,
-  secondaryAlt: "iLUMNA Advanced Dental Centre, Jayanagar",
+  primary: images.whyChooseChair,
+  primaryAlt: "Gentle in-chair dental care at iLUMNA Dental, Jayanagar",
+  secondary: images.consultation,
+  secondaryAlt: "Consultation at iLUMNA Advanced Dental Centre",
 } as const;

@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 import {
   PremiumSectionHeader,
   PremiumTitleBlue,
@@ -129,6 +130,7 @@ export function FaqSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_45%_35%_at_0%_50%,rgba(255,255,255,0.9),transparent_60%)]"
       />
+      <FlyingDentalDecor density="medium" />
 
       <div className="hero-page-gutter relative z-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-12">

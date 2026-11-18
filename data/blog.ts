@@ -25,7 +25,7 @@ export const blogPosts: BlogPost[] = [
     category: "Clinic News",
     publishedAt: "2026-02-12",
     publishedLabel: "Feb 12, 2026",
-    image: `${CDN}/2026/10/DSC03224-scaled.jpg`,
+    image: `${CDN}/2026/10/DSC03385-scaled.jpg`,
     imageAlt: "iLUMNA Dental clinic consultation",
     featured: true,
     readTimeMinutes: 4,
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     category: "Patient Guide",
     publishedAt: "2025-12-05",
     publishedLabel: "Dec 5, 2025",
-    image: `${CDN}/2026/10/DSC03249-1-scaled-e1792213867791.jpg`,
+    image: "/why-choose-care-chair.webp",
     imageAlt: "iLUMNA Advanced Dental Centre",
     readTimeMinutes: 3,
     content: [

@@ -8,8 +8,9 @@ import { Clock, Phone, Sparkles, Star } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { formatPhoneHref } from "@/lib/utils";
 import { staggerContainer } from "@/components/animations/variants";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
-const CTA_HERO_SRC = "/cta-brush-hero.jpg";
+import { images } from "@/lib/images";
 
 const BADGE_SPARKLES = [
   { className: "left-[6%] top-[32%]", delay: 0 },
@@ -92,15 +93,15 @@ function CtaHeroVisual({ reduceMotion }: { reduceMotion: boolean | null }) {
             : { y: [0, -10, 0], rotate: [-0.6, 0.6, -0.6] }
         }
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-        className="cta-hero-art-wrap relative"
+        className="cta-hero-art-wrap relative aspect-[5/4] overflow-hidden rounded-2xl border border-white/20 sm:aspect-[4/3]"
       >
         <Image
-          src={CTA_HERO_SRC}
-          alt="Fresh smile care illustration"
-          width={1024}
-          height={558}
+          src={images.consultation}
+          alt="Treatment room at iLUMNA Dental, Jayanagar"
+          width={1200}
+          height={800}
           sizes="(max-width: 1024px) 92vw, 416px"
-          className="cta-hero-art relative z-[1] h-auto w-full select-none"
+          className="cta-hero-art relative z-[1] h-full w-full select-none object-cover object-[center_22%]"
           draggable={false}
           priority={false}
         />
@@ -138,6 +139,7 @@ export function CtaBannerSection({
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-35 [background-image:radial-gradient(rgba(255,255,255,0.28)_1px,transparent_1px)] [background-size:22px_22px]"
         />
+        <FlyingDentalDecor variant="dark" density="rich" />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_15%_30%,rgba(5,162,164,0.22),transparent_55%),radial-gradient(ellipse_50%_45%_at_95%_70%,rgba(245,215,110,0.14),transparent_50%)]"

@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { sectionReveal } from "@/components/animations/variants";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 import { viewportReveal } from "@/lib/motion-config";
 
 type SectionShellProps = {
@@ -13,6 +14,9 @@ type SectionShellProps = {
   variant?: "default" | "muted" | "surface";
   /** Scroll-in animation when section enters view */
   animate?: boolean;
+  /** Floating teeth / sparkle ambience */
+  decor?: boolean;
+  decorDensity?: "soft" | "medium" | "rich";
 };
 
 const variants = {
@@ -29,9 +33,12 @@ export function SectionShell({
   innerClassName,
   variant = "default",
   animate = true,
+  decor = true,
+  decorDensity = "medium",
 }: SectionShellProps) {
   const reduceMotion = useReducedMotion();
   const shellClass = cn("section-pad relative overflow-x-clip", variants[variant], className);
+  const decorLayer = decor ? <FlyingDentalDecor density={decorDensity} /> : null;
 
   const inner = (
     <div className={cn("hero-page-gutter relative z-10", innerClassName)}>{children}</div>
@@ -40,6 +47,7 @@ export function SectionShell({
   if (!animate || reduceMotion) {
     return (
       <section id={id} className={shellClass}>
+        {decorLayer}
         {inner}
       </section>
     );
@@ -54,6 +62,7 @@ export function SectionShell({
       viewport={viewportReveal}
       variants={sectionReveal}
     >
+      {decorLayer}
       {inner}
     </motion.section>
   );

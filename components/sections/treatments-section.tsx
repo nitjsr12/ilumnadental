@@ -10,6 +10,7 @@ import {
   PremiumTitleGold,
 } from "@/components/ui/premium-section-header";
 import { fadeUpLite, staggerContainer } from "@/components/animations/variants";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 export function TreatmentsSection() {
   return (
@@ -18,6 +19,7 @@ export function TreatmentsSection() {
       className="treatments-services-section section-pad relative overflow-x-clip"
     >
       <div aria-hidden className="treatments-services-bg pointer-events-none absolute inset-0" />
+      <FlyingDentalDecor density="medium" />
 
       <div className="hero-page-gutter relative z-10">
         <PremiumSectionHeader

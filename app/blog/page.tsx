@@ -3,7 +3,6 @@ import { PageHero } from "@/components/layout/page-hero";
 import { InnerPageFooter } from "@/components/layout/inner-page-footer";
 import { BlogListingSection } from "@/components/sections/blog-listing-section";
 import { createPageMetadata } from "@/lib/metadata";
-import { images } from "@/lib/images";
 
 export const metadata = createPageMetadata({
   title: "Blog & Health Resources",
@@ -17,7 +16,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog & resources"
         title="Health insights for informed dental decisions."
-        imageSrc={images.consultation}
+        banner="blog"
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
       <BlogListingSection />

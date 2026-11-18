@@ -40,6 +40,9 @@ export function AboutFeatureItem({ feature, index }: AboutFeatureItemProps) {
           >
             <Icon className="h-5 w-5 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={2} aria-hidden />
           </span>
+          <span className="about-feature-tooth-accent flying-dental-emoji--motion-c" aria-hidden>
+            🦷
+          </span>
           <div className="about-feature-popup pointer-events-none absolute bottom-[calc(100%+0.5rem)] left-1/2 z-20 w-[min(16rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-primary/8 bg-white px-3 py-2.5 text-left opacity-0 shadow-xl transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1 group-focus-within:opacity-100">
             <p className="text-xs leading-relaxed text-[#64748b] sm:text-sm">{feature.detail}</p>
           </div>

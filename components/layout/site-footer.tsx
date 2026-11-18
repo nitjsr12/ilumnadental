@@ -8,6 +8,7 @@ import { treatments } from "@/data/treatments";
 import { Reveal, StaggerItem, StaggerReveal } from "@/components/animations/reveal";
 import { FooterSocialLinks } from "@/components/layout/footer-social-links";
 import { formatPhoneHref } from "@/lib/utils";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const usefulLinks = [
   { label: "Home", href: "/" },

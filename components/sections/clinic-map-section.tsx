@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { MapPin, Sparkles } from "lucide-react";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 import { siteConfig } from "@/lib/site-config";
 
 export function ClinicMapSection() {
   return (
     <section id="map" className="bg-white" aria-label="Clinic location">
-      <div className="border-b border-[#04437f]/8 bg-gradient-to-r from-[#f8fcff] via-white to-[#f8fcff]">
-        <div className="hero-page-gutter flex flex-wrap items-center justify-between gap-4 py-5 sm:py-6">
+      <div className="relative overflow-x-clip border-b border-[#04437f]/8 bg-gradient-to-r from-[#f8fcff] via-white to-[#f8fcff]">
+        <FlyingDentalDecor density="soft" />
+        <div className="hero-page-gutter relative z-10 flex flex-wrap items-center justify-between gap-4 py-5 sm:py-6">
           <div className="flex min-w-0 items-start gap-3">
             <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e8f4fc] text-[#1781be]">
               <MapPin className="h-5 w-5" aria-hidden />

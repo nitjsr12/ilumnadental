@@ -3,7 +3,6 @@ import { PageHero } from "@/components/layout/page-hero";
 import { InnerPageFooter } from "@/components/layout/inner-page-footer";
 import { BookingSection } from "@/components/sections/booking-section";
 import { createPageMetadata } from "@/lib/metadata";
-import { images } from "@/lib/images";
 
 export const metadata = createPageMetadata({
   title: "Book an Appointment",
@@ -17,7 +16,7 @@ export default function BookAppointmentPage() {
       <PageHero
         eyebrow="Appointments"
         title="Book your visit — we'll confirm by phone or WhatsApp."
-        imageSrc={images.clinicInterior}
+        banner="bookAppointment"
         priority
       />
       <PageBreadcrumbs

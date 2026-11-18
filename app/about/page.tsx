@@ -2,12 +2,12 @@ import { AboutFeaturesSection } from "@/components/sections/about/about-features
 import { AboutImpactSection } from "@/components/sections/about/about-impact-section";
 import { AboutIntroSection } from "@/components/sections/about/about-intro-section";
 import { AboutPhilosophySection } from "@/components/sections/about/about-philosophy-section";
+import { PatientTrustSection } from "@/components/sections/patient-trust-section";
 import { PageBreadcrumbs } from "@/components/layout/page-breadcrumbs";
 import { PageHero } from "@/components/layout/page-hero";
 import { CtaBannerSection } from "@/components/sections/cta-banner-section";
 import { aboutCta } from "@/data/about-page";
 import { createPageMetadata } from "@/lib/metadata";
-import { images } from "@/lib/images";
 
 export const metadata = createPageMetadata({
   title: "About iLUMNA Dental",
@@ -22,13 +22,14 @@ export default function AboutPage() {
       <PageHero
         eyebrow="iLUMNA Dental · Jayanagar"
         title="Precision, trust, and care behind every smile we restore."
-        imageSrc={images.heroPrimary}
+        banner="about"
         priority
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
       <AboutIntroSection />
       <AboutFeaturesSection />
       <AboutPhilosophySection />
+      <PatientTrustSection />
       <AboutImpactSection />
       <CtaBannerSection
         eyebrow={aboutCta.eyebrow}

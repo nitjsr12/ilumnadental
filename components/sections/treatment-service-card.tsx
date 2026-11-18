@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { TreatmentIconImage } from "@/components/ui/treatment-icon-image";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import type { Treatment } from "@/data/treatments";
@@ -21,15 +22,8 @@ export function TreatmentServiceCard({ treatment, className }: TreatmentServiceC
   const card = (
     <>
       <div className="treatment-service-card-media relative aspect-[4/3] overflow-hidden rounded-t-2xl">
-        <div className="treatment-service-card-icon-panel absolute inset-0 z-[1] flex items-center justify-center p-4 sm:p-5">
-          <Image
-            src={treatment.iconImage}
-            alt=""
-            width={280}
-            height={280}
-            className="treatment-service-card-icon-art mx-auto h-auto max-h-[5.25rem] w-auto max-w-[min(100%,8.5rem)] object-contain object-center sm:max-h-[5.75rem] sm:max-w-[9.25rem]"
-            aria-hidden
-          />
+        <div className="treatment-service-card-icon-panel absolute inset-0 z-[1] flex items-center justify-center">
+          <TreatmentIconImage src={treatment.iconImage} />
         </div>
 
         <div className="treatment-service-card-hover-panel absolute inset-0 z-[2]">

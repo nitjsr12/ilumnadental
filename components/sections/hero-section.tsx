@@ -14,6 +14,7 @@ import { HeroDotNav } from "@/components/sections/hero-dot-nav";
 import { siteConfig } from "@/lib/site-config";
 import { heroSlides } from "@/data/hero-slides";
 import { fadeUp, staggerContainer } from "@/components/animations/variants";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const AUTOPLAY_MS = 6500;
 
@@ -40,6 +41,7 @@ export function HeroSection() {
       <div aria-hidden className="hero-premium-orb hero-premium-orb--a" />
       <div aria-hidden className="hero-premium-orb hero-premium-orb--b" />
       <div aria-hidden className="hero-premium-particles" />
+      <FlyingDentalDecor variant="hero" density="rich" />
 
       <svg
         className="hero-premium-wave pointer-events-none absolute bottom-0 left-0 w-full"
@@ -70,6 +72,9 @@ export function HeroSection() {
               </span>
               <span className="text-[0.9375rem] font-semibold text-[#04437f] sm:text-base">
                 Trusted dental care in Jayanagar
+              </span>
+              <span className="text-base" aria-hidden>
+                🦷
               </span>
               <Sparkles className="h-4 w-4 text-[#d4af37]" strokeWidth={2} aria-hidden />
               <Sparkles className="-ml-2 h-3 w-3 text-[#c9a962]" strokeWidth={2} aria-hidden />

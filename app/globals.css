@@ -510,22 +510,42 @@ body {
 }
 
 .treatment-service-card-icon-panel {
+  isolation: isolate;
   background: radial-gradient(
-    ellipse 90% 80% at 50% 35%,
-    #dbeafe 0%,
-    #eff6ff 45%,
-    #ffffff 100%
+    ellipse 100% 95% at 50% 42%,
+    #d4e9f8 0%,
+    #e3f2fb 48%,
+    #ebf6fc 100%
   );
   transition:
     opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.treatment-service-card-icon-panel img {
+  background: transparent !important;
+}
+
 .treatment-service-card-icon-art {
-  filter: drop-shadow(0 10px 24px rgba(4, 67, 127, 0.12));
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: min(86%, 7.5rem);
+  max-width: min(92%, 12rem);
+  object-fit: contain;
+  background: transparent !important;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 18px rgba(4, 67, 127, 0.14));
   transition:
     opacity 0.45s ease,
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 640px) {
+  .treatment-service-card-icon-art {
+    max-height: min(84%, 7.75rem);
+    max-width: min(90%, 11.5rem);
+  }
 }
 
 .treatment-service-card:is(:hover, :focus-within) .treatment-service-card-icon-panel {
@@ -849,8 +869,25 @@ body {
 }
 
 .why-choose-panel {
-  min-height: min(32rem, 70vh);
-  box-shadow: 0 40px 100px -48px rgba(18, 36, 47, 0.55);
+  box-shadow:
+    0 40px 100px -48px rgba(4, 67, 127, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.why-choose-feature-card {
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.why-choose-feature-card:hover,
+.why-choose-feature-card:focus-within {
+  border-color: rgba(5, 162, 164, 0.45);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow:
+    0 18px 40px -22px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .why-choose-glass {
@@ -2333,4 +2370,360 @@ body {
 .link-hover-slide:hover::after,
 .link-hover-slide:focus-visible::after {
   transform: scaleX(1);
+}
+
+/* Video testimonials */
+.video-testimonials-bg {
+  background:
+    radial-gradient(ellipse 70% 55% at 12% 8%, rgba(23, 129, 190, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 88% 92%, rgba(5, 162, 164, 0.07), transparent 50%),
+    linear-gradient(180deg, #f3f5f8 0%, #eef3f8 50%, #f3f5f8 100%);
+}
+
+.video-testimonials-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.video-testimonial-pick:focus-visible {
+  outline: 2px solid #1781be;
+  outline-offset: 2px;
+}
+
+/* Patient trust / social proof */
+.patient-trust-card--google {
+  background: linear-gradient(145deg, #e8f4fc, #ffffff);
+}
+
+.patient-trust-card--instagram {
+  background: linear-gradient(145deg, #f58529, #dd2a7b 55%, #8134af);
+}
+
+.patient-trust-card--youtube {
+  background: linear-gradient(145deg, #ff4040, #cc0000);
+}
+
+.patient-trust-card--whatsapp {
+  background: linear-gradient(145deg, #25d366, #128c7e);
+}
+
+.patient-trust-channel-badge.patient-trust-card--instagram,
+.patient-trust-channel-badge.patient-trust-card--youtube,
+.patient-trust-channel-badge.patient-trust-card--whatsapp {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.patient-trust-channel-badge.patient-trust-card--google {
+  background: #ffffff;
+  border: 1px solid rgba(66, 133, 244, 0.2);
+}
+
+.patient-trust-channel-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* Before / after smile slider (compare handle) */
+.before-after-slider,
+.before-after-slider .relative.touch-none {
+  cursor: ew-resize;
+}
+
+.before-after-slider--dragging,
+.before-after-slider--dragging * {
+  cursor: grabbing;
+}
+
+.before-after-label {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 5;
+  border-radius: 0.25rem;
+  background: #ffffff;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0d1b3e;
+  box-shadow: 0 4px 14px rgba(4, 67, 127, 0.12);
+  pointer-events: none;
+}
+
+.before-after-label--before {
+  left: 0.75rem;
+}
+
+.before-after-label--after {
+  right: 0.75rem;
+}
+
+.before-after-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  background: linear-gradient(145deg, #1781be, #04437f);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(4, 67, 127, 0.35);
+}
+
+.before-after-divider {
+  pointer-events: none;
+}
+
+/* Flying dental decor — teeth & sparkles across sections */
+.flying-dental-decor {
+  z-index: 0;
+}
+
+.flying-dental-decor--light .flying-dental-emoji {
+  opacity: 0.65;
+  filter: drop-shadow(0 6px 14px rgba(4, 67, 127, 0.12));
+}
+
+.flying-dental-decor--dark .flying-dental-emoji,
+.flying-dental-decor--hero .flying-dental-emoji {
+  opacity: 0.88;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.flying-dental-decor--hero .flying-dental-emoji {
+  opacity: 0.92;
+}
+
+.flying-dental-emoji {
+  position: absolute;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.flying-dental-emoji.is-static {
+  opacity: 0.5;
+}
+
+.flying-dental-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.flying-dental-orb--a {
+  top: -8%;
+  left: -6%;
+  width: min(40vw, 14rem);
+  height: min(40vw, 14rem);
+  background: radial-gradient(circle, rgba(5, 162, 164, 0.22), transparent 70%);
+  animation: flying-dental-orb-a 16s ease-in-out infinite alternate;
+}
+
+.flying-dental-orb--b {
+  right: -4%;
+  bottom: 10%;
+  width: min(36vw, 12rem);
+  height: min(36vw, 12rem);
+  background: radial-gradient(circle, rgba(23, 129, 190, 0.18), transparent 72%);
+  animation: flying-dental-orb-b 19s ease-in-out infinite alternate;
+  animation-delay: -4s;
+}
+
+.flying-dental-orb--c {
+  top: 42%;
+  left: 38%;
+  width: min(50vw, 18rem);
+  height: min(28vw, 10rem);
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.14), transparent 70%);
+  animation: flying-dental-orb-c 22s ease-in-out infinite alternate;
+  animation-delay: -7s;
+}
+
+@keyframes flying-dental-orb-a {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(28px, 22px) scale(1.12);
+  }
+}
+
+@keyframes flying-dental-orb-b {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-24px, -18px) scale(1.08);
+  }
+}
+
+@keyframes flying-dental-orb-c {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    transform: translate(calc(-50% + 18px), -26px) scale(1.15);
+  }
+}
+
+.flying-dental-emoji--motion-a {
+  animation: flying-dental-float-a var(--fd-dur, 11s) ease-in-out infinite;
+  animation-delay: var(--fd-delay, 0s);
+}
+
+.flying-dental-emoji--motion-b {
+  animation: flying-dental-float-b var(--fd-dur, 10s) ease-in-out infinite;
+  animation-delay: var(--fd-delay, 0s);
+}
+
+.flying-dental-emoji--motion-c {
+  animation: flying-dental-float-c var(--fd-dur, 12s) ease-in-out infinite;
+  animation-delay: var(--fd-delay, 0s);
+}
+
+@keyframes flying-dental-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(var(--fd-rot, 0deg)) scale(1);
+    opacity: 0.55;
+  }
+  25% {
+    transform: translate(14px, -28px) rotate(calc(var(--fd-rot, 0deg) + 14deg)) scale(1.08);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate(-12px, -16px) rotate(calc(var(--fd-rot, 0deg) - 10deg)) scale(0.96);
+    opacity: 0.72;
+  }
+  75% {
+    transform: translate(10px, -34px) rotate(calc(var(--fd-rot, 0deg) + 8deg)) scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes flying-dental-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(var(--fd-rot, 0deg)) scale(1);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translate(-16px, -22px) rotate(calc(var(--fd-rot, 0deg) - 12deg)) scale(1.1);
+    opacity: 0.92;
+  }
+  66% {
+    transform: translate(18px, -30px) rotate(calc(var(--fd-rot, 0deg) + 16deg)) scale(0.94);
+    opacity: 0.78;
+  }
+}
+
+@keyframes flying-dental-float-c {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(var(--fd-rot, 0deg)) scale(1);
+    opacity: 0.58;
+  }
+  20% {
+    transform: translate(8px, -20px) rotate(calc(var(--fd-rot, 0deg) + 6deg)) scale(1.06);
+    opacity: 0.88;
+  }
+  55% {
+    transform: translate(-14px, -36px) rotate(calc(var(--fd-rot, 0deg) - 14deg)) scale(1.12);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(6px, -12px) rotate(calc(var(--fd-rot, 0deg) + 4deg)) scale(0.98);
+    opacity: 0.7;
+  }
+}
+
+.flying-dental-decor--dark .flying-dental-orb--a,
+.flying-dental-decor--hero .flying-dental-orb--a {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
+}
+
+.flying-dental-decor--dark .flying-dental-orb--b,
+.flying-dental-decor--hero .flying-dental-orb--b {
+  background: radial-gradient(circle, rgba(5, 162, 164, 0.2), transparent 72%);
+}
+
+.about-feature-tooth-accent {
+  position: absolute;
+  top: -0.35rem;
+  right: -0.35rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(23, 129, 190, 0.25));
+  --fd-rot: -12deg;
+  --fd-dur: 7s;
+  --fd-delay: 0.2s;
+}
+
+.about-feature-item:hover .about-feature-tooth-accent,
+.about-feature-item:focus-within .about-feature-tooth-accent {
+  opacity: 1;
+}
+
+.about-feature-item:hover .about-feature-tooth-accent:not(.is-static),
+.about-feature-item:focus-within .about-feature-tooth-accent:not(.is-static) {
+  animation: flying-dental-float-b var(--fd-dur, 7s) ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flying-dental-emoji--motion-a,
+  .flying-dental-emoji--motion-b,
+  .flying-dental-emoji--motion-c {
+    animation: none !important;
+  }
+
+  .flying-dental-orb--a,
+  .flying-dental-orb--b,
+  .flying-dental-orb--c {
+    animation: none !important;
+  }
+}
+
+/* Initial load — solid clinical blue + logo mark */
+.splash-loader {
+  background: #35aed4;
+}
+
+.splash-loader-mark {
+  width: min(80vw, 14rem);
+  height: min(55vw, 9.5rem);
+}
+
+.splash-loader-arc {
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.splash-loader-mark-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-loader-logo {
+  filter: brightness(0) invert(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-loader-arc {
+    animation: none !important;
+  }
 }

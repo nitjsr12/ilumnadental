@@ -12,6 +12,7 @@ import {
 import { blogPostHref, blogPosts } from "@/data/blog";
 import { Button } from "@/components/ui/button";
 import { fadeUpLite, staggerContainer } from "@/components/animations/variants";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const HOME_POST_COUNT = 3;
 
@@ -22,6 +23,7 @@ export function BlogSection() {
 
   return (
     <section id="blog" className="premium-section-surface relative overflow-x-clip section-pad">
+      <FlyingDentalDecor density="medium" />
       <div className="hero-page-gutter relative z-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <PremiumSectionHeader

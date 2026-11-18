@@ -3,7 +3,6 @@ import { PageHero } from "@/components/layout/page-hero";
 import { InnerPageFooter } from "@/components/layout/inner-page-footer";
 import { ContactSection } from "@/components/sections/contact-section";
 import { createPageMetadata } from "@/lib/metadata";
-import { images } from "@/lib/images";
 
 export const metadata = createPageMetadata({
   title: "Contact",
@@ -17,7 +16,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact us"
         title="Visit our Jayanagar clinic or reach us anytime."
-        imageSrc={images.aboutClinic}
+        banner="contact"
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
       <ContactSection />

@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import { Award, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionShell } from "@/components/ui/section-shell";
@@ -13,12 +12,6 @@ import { fadeUp, staggerContainer } from "@/components/animations/variants";
 
 export function AboutIntroSection() {
   const { doctor } = siteConfig;
-  const bannerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: bannerRef,
-    offset: ["start end", "end start"],
-  });
-  const bannerScale = useTransform(scrollYProgress, [0, 1], [1.08, 1]);
 
   return (
     <SectionShell variant="surface" className="relative overflow-hidden !pt-0">
@@ -61,25 +54,6 @@ export function AboutIntroSection() {
                 priority
               />
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="absolute -bottom-4 -left-2 z-10 hidden w-[46%] overflow-hidden rounded-2xl border-2 border-surface shadow-xl sm:block lg:-left-6"
-            >
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.consultation}
-                  alt="Consultation at iLUMNA Dental"
-                  fill
-                  sizes="200px"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
-              </div>
-            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, x: -12 }}
@@ -160,48 +134,6 @@ export function AboutIntroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        ref={bannerRef}
-        initial={{ opacity: 0, y: 28 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6 }}
-        className="relative mt-10 overflow-hidden rounded-2xl border border-primary/10 shadow-lg lg:mt-12"
-      >
-        <div className="relative aspect-[21/9] min-h-[12rem] sm:min-h-[14rem]">
-          <motion.div style={{ scale: bannerScale }} className="absolute inset-0">
-            <Image
-              src={images.aboutClinic}
-              alt="iLUMNA Dental clinic in Jayanagar, Bengaluru"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/75 via-primary/35 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8 lg:max-w-xl">
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="text-sm font-medium text-gold"
-            >
-              Jayanagar · Bengaluru
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.22 }}
-              className="mt-1 text-lg font-semibold text-white sm:text-xl"
-            >
-              A refined clinic built for precision, comfort, and confident smiles.
-            </motion.p>
-          </div>
-        </div>
-      </motion.div>
     </SectionShell>
   );
 }

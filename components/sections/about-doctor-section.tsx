@@ -14,6 +14,7 @@ import {
 } from "@/data/about-home-section";
 import { siteConfig } from "@/lib/site-config";
 import { fadeUp, staggerContainer } from "@/components/animations/variants";
+import { FloatingDentalEmoji, FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const floatY = (reduceMotion: boolean | null, y: number[], duration: number, delay = 0) =>
   reduceMotion
@@ -54,6 +55,7 @@ export function AboutDoctorSection() {
       <div aria-hidden className="about-premium-bg pointer-events-none absolute inset-0" />
       <div aria-hidden className="about-premium-orb about-premium-orb--a" />
       <div aria-hidden className="about-premium-orb about-premium-orb--b" />
+      <FlyingDentalDecor density="rich" />
 
       <div className="hero-page-gutter relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
@@ -84,28 +86,42 @@ export function AboutDoctorSection() {
                     alt={aboutHomeGallery.primaryAlt}
                     fill
                     sizes="(max-width: 1024px) 92vw, 42vw"
-                    className="object-cover object-[center_22%]"
+                    className="object-cover object-[center_30%]"
                     priority
                   />
                 </motion.div>
               </motion.div>
 
-              {!reduceMotion && (
-                <>
-                  <motion.span
-                    animate={floatY(reduceMotion, [0, -14, 0], 4.2)}
-                    className="about-premium-particle left-[12%] top-[18%] h-2 w-2 opacity-60"
-                  />
-                  <motion.span
-                    animate={floatY(reduceMotion, [0, 10, 0], 5, 0.8)}
-                    className="about-premium-particle right-[18%] top-[28%] h-1.5 w-1.5 opacity-50"
-                  />
-                  <motion.span
-                    animate={floatY(reduceMotion, [0, -8, 0], 3.6, 1.2)}
-                    className="about-premium-particle bottom-[32%] left-[6%] h-2.5 w-2.5 opacity-40"
-                  />
-                </>
-              )}
+              <FloatingDentalEmoji
+                emoji="🦷"
+                motion="a"
+                duration={9.5}
+                delay={0}
+                rotate={-8}
+                className="left-[10%] top-[14%] text-xl sm:text-2xl"
+              />
+              <FloatingDentalEmoji
+                emoji="✨"
+                motion="b"
+                duration={8}
+                delay={0.6}
+                className="right-[14%] top-[22%] text-lg"
+              />
+              <FloatingDentalEmoji
+                emoji="🦷"
+                motion="c"
+                duration={11}
+                delay={1.1}
+                rotate={12}
+                className="bottom-[30%] left-[4%] text-2xl"
+              />
+              <FloatingDentalEmoji
+                emoji="😁"
+                motion="b"
+                duration={10}
+                delay={0.35}
+                className="right-[6%] bottom-[38%] text-lg"
+              />
 
               <motion.div
                 animate={floatRotate(reduceMotion, 4.5)}
@@ -169,7 +185,9 @@ export function AboutDoctorSection() {
               className="mb-5 inline-flex items-center gap-2 rounded-full bg-[#e8f4fc] px-4 py-2 text-sm font-semibold text-[#1781be]"
             >
               <Sparkles className="h-4 w-4 text-[#d4af37]" strokeWidth={2} aria-hidden />
+              <span aria-hidden>🦷</span>
               About Our Clinic
+              <span aria-hidden>✨</span>
             </motion.div>
 
             <motion.h2 variants={fadeUp} className="about-clinic-title">

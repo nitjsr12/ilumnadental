@@ -24,6 +24,7 @@ import {
   PremiumTitleGold,
 } from "@/components/ui/premium-section-header";
 import { cn } from "@/lib/utils";
+import { FlyingDentalDecor } from "@/components/decor/flying-dental-decor";
 
 const steps: {
   icon: LucideIcon;
@@ -72,6 +73,7 @@ export function PatientJourneySection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_100%_0%,rgba(227,242,253,0.8),transparent_55%)]"
       />
+      <FlyingDentalDecor density="medium" />
 
       <div ref={trackRef} className="hero-page-gutter relative z-10">
         <PremiumSectionHeader

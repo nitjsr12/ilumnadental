@@ -3,7 +3,6 @@ import { PageHero } from "@/components/layout/page-hero";
 import { InnerPageFooter } from "@/components/layout/inner-page-footer";
 import { TreatmentsPageGrid } from "@/components/sections/treatments-page-grid";
 import { createPageMetadata } from "@/lib/metadata";
-import { images } from "@/lib/images";
 
 export const metadata = createPageMetadata({
   title: "Dental Treatments & Services",
@@ -18,7 +17,7 @@ export default function TreatmentsPage() {
       <PageHero
         eyebrow="iLUMNA Dental · Treatments"
         title="Advanced dental care for healthy, confident smiles."
-        imageSrc={images.heroSecondary}
+        banner="treatments"
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "Treatments" }]} />
       <TreatmentsPageGrid />
