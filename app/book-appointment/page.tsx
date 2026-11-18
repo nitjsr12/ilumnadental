@@ -17,7 +17,6 @@ export default function BookAppointmentPage() {
         eyebrow="Appointments"
         title="Book your visit — we'll confirm by phone or WhatsApp."
         banner="bookAppointment"
-        priority
       />
       <PageBreadcrumbs
         items={[

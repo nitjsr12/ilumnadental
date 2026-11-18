@@ -1,83 +1,73 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { images, pageBanners, type PageBannerKey } from "@/lib/images";
+import type { PageBannerKey } from "@/lib/images";
 
 export type PageHeroProps = {
   eyebrow: string;
   title: string;
-  imageSrc?: string;
+  /** Subtle accent variant (no photo — gradient only) */
   banner?: PageBannerKey;
-  priority?: boolean;
   className?: string;
+};
+
+const bannerAccent: Record<PageBannerKey, string> = {
+  default: "page-hero-banner--default",
+  about: "page-hero-banner--about",
+  treatments: "page-hero-banner--treatments",
+  treatment: "page-hero-banner--treatments",
+  blog: "page-hero-banner--blog",
+  blogPost: "page-hero-banner--blog",
+  contact: "page-hero-banner--contact",
+  bookAppointment: "page-hero-banner--book",
+  patientStories: "page-hero-banner--stories",
 };
 
 export function PageHero({
   eyebrow,
   title,
-  imageSrc,
   banner = "default",
-  priority = false,
   className,
 }: PageHeroProps) {
-  const src = imageSrc ?? pageBanners[banner] ?? images.heroPrimary;
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
+  const accent = bannerAccent[banner] ?? bannerAccent.default;
 
   return (
     <section
-      ref={ref}
       className={cn(
-        "page-hero-banner relative min-h-[min(34vh,22rem)] overflow-hidden border-b border-primary/10 sm:min-h-[min(38vh,24rem)]",
+        "page-hero-banner relative min-h-[11.5rem] overflow-hidden border-b border-[#04437f]/20 sm:min-h-[12.5rem]",
+        accent,
         className,
       )}
     >
-      <div className="absolute inset-0" aria-hidden>
-        <motion.div style={{ scale }} className="page-hero-media absolute inset-0">
-          <Image
-            src={src}
-            alt=""
-            fill
-            priority={priority}
-            sizes="100vw"
-            className="object-cover object-[center_28%]"
-          />
-        </motion.div>
-        <div className="page-hero-overlay absolute inset-0 bg-gradient-to-r from-[#021a33]/94 via-[#04437f]/72 to-[#0d6eb8]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#021a33]/55 via-transparent to-[#021a33]/25" />
-      </div>
+      <div aria-hidden className="page-hero-banner-bg" />
+      <div aria-hidden className="page-hero-banner-grid" />
+      <div aria-hidden className="page-hero-banner-scrim" />
+      <div aria-hidden className="page-hero-banner-orb page-hero-banner-orb--a" />
+      <div aria-hidden className="page-hero-banner-orb page-hero-banner-orb--b" />
 
-      <div className="hero-page-gutter relative z-10 flex min-h-[min(34vh,22rem)] flex-col justify-end py-8 sm:min-h-[min(38vh,24rem)] sm:py-9 lg:py-10">
+      <div className="page-hero-banner-content hero-page-gutter flex flex-col justify-end py-10 sm:py-11 lg:py-12">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md"
+          className="page-hero-banner-eyebrow mb-4 inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold backdrop-blur-md"
         >
           <Sparkles className="h-3.5 w-3.5 text-[#f5d76e]" strokeWidth={2} aria-hidden />
           {eyebrow}
         </motion.div>
         <motion.h1
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.08 }}
-          className="max-w-3xl text-[clamp(1.75rem,3.5vw,2.625rem)] font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_2px_24px_rgba(2,26,51,0.45)]"
+          className="page-hero-banner-title max-w-3xl text-[clamp(1.625rem,3.25vw,2.5rem)] font-extrabold leading-[1.12] tracking-tight"
         >
           {title}
         </motion.h1>
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 h-1 w-24 origin-left rounded-full bg-gradient-to-r from-[#f5d76e] via-[#05a2a4] to-transparent"
+          transition={{ duration: 0.65, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+          className="page-hero-banner-rule mt-5 h-1 w-28 max-w-[40%] origin-left rounded-full"
           aria-hidden
         />
       </div>

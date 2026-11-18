@@ -23,7 +23,6 @@ export default function AboutPage() {
         eyebrow="iLUMNA Dental · Jayanagar"
         title="Precision, trust, and care behind every smile we restore."
         banner="about"
-        priority
       />
       <PageBreadcrumbs items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
       <AboutIntroSection />

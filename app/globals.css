@@ -2372,6 +2372,123 @@ body {
   transform: scaleX(1);
 }
 
+/* Inner page heroes — gradient only (no banner photos) */
+.page-hero-banner {
+  position: relative;
+  isolation: isolate;
+  background: #021a33;
+  color: #ffffff;
+}
+
+.page-hero-banner-bg,
+.page-hero-banner-grid,
+.page-hero-banner-scrim,
+.page-hero-banner-orb {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-hero-banner-bg {
+  z-index: 0;
+  background: linear-gradient(
+    118deg,
+    #011528 0%,
+    #021a33 22%,
+    #04437f 52%,
+    #0a5a9c 78%,
+    #1781be 100%
+  );
+}
+
+.page-hero-banner--about .page-hero-banner-bg {
+  background: linear-gradient(118deg, #011528 0%, #021a33 25%, #04437f 55%, #0d6eb8 100%);
+}
+
+.page-hero-banner--treatments .page-hero-banner-bg {
+  background: linear-gradient(120deg, #011528 0%, #03315c 30%, #04437f 58%, #1781be 100%);
+}
+
+.page-hero-banner--blog .page-hero-banner-bg {
+  background: linear-gradient(122deg, #011528 0%, #021a33 28%, #055a8a 62%, #0a5a9c 100%);
+}
+
+.page-hero-banner--contact .page-hero-banner-bg {
+  background: linear-gradient(120deg, #011528 0%, #021a33 32%, #04437f 60%, #1781be 100%);
+}
+
+.page-hero-banner--book .page-hero-banner-bg {
+  background: linear-gradient(120deg, #011528 0%, #03315c 35%, #04437f 62%, #05a2a4 100%);
+}
+
+.page-hero-banner--stories .page-hero-banner-bg {
+  background: linear-gradient(118deg, #011528 0%, #021a33 30%, #04437f 58%, #0d6eb8 100%);
+}
+
+.page-hero-banner-scrim {
+  z-index: 2;
+  background: linear-gradient(
+    105deg,
+    rgba(1, 12, 24, 0.92) 0%,
+    rgba(2, 26, 51, 0.72) 42%,
+    rgba(4, 67, 127, 0.28) 68%,
+    transparent 100%
+  );
+}
+
+.page-hero-banner-grid {
+  z-index: 1;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.page-hero-banner-orb {
+  z-index: 1;
+  border-radius: 9999px;
+  filter: blur(72px);
+}
+
+.page-hero-banner-orb--a {
+  top: -3rem;
+  right: -2%;
+  width: 16rem;
+  height: 16rem;
+  background: rgba(5, 162, 164, 0.22);
+}
+
+.page-hero-banner-orb--b {
+  bottom: -4rem;
+  right: 18%;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(245, 215, 110, 0.14);
+}
+
+.page-hero-banner-content {
+  position: relative;
+  z-index: 10;
+}
+
+.page-hero-banner-eyebrow {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  text-shadow: 0 1px 2px rgba(1, 12, 24, 0.45);
+}
+
+.page-hero-banner-title {
+  color: #ffffff;
+  text-shadow:
+    0 2px 16px rgba(1, 12, 24, 0.55),
+    0 1px 2px rgba(1, 12, 24, 0.35);
+}
+
+.page-hero-banner-rule {
+  background: linear-gradient(90deg, #f5d76e 0%, #05a2a4 50%, rgba(5, 162, 164, 0.15) 100%);
+}
+
 /* Video testimonials */
 .video-testimonials-bg {
   background:

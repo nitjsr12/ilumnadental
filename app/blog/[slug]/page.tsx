@@ -36,7 +36,6 @@ export default async function BlogPostPage({ params }: Props) {
         eyebrow={post.category}
         title={post.title}
         banner="blogPost"
-        priority
       />
       <PageBreadcrumbs
         items={[
