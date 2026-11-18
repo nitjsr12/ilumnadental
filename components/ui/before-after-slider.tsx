@@ -83,14 +83,15 @@ export function BeforeAfterSlider({
           if (e.key === "ArrowRight") setPosition((p) => Math.min(100, p + 4));
         }}
       >
-        <div className="relative aspect-[4/3] w-full sm:aspect-[16/11]">
+        <div className="before-after-frame relative aspect-[902/606] w-full">
           <Image
             src={afterSrc}
             alt={afterAlt}
             fill
             sizes="(max-width: 768px) 92vw, 640px"
-            className="object-cover object-center"
+            className="before-after-photo before-after-photo--after"
             priority={false}
+            quality={92}
             draggable={false}
           />
 
@@ -99,8 +100,9 @@ export function BeforeAfterSlider({
             alt={beforeAlt}
             fill
             sizes="(max-width: 768px) 92vw, 640px"
-            className="object-cover object-center"
+            className="before-after-photo before-after-photo--before"
             style={{ clipPath: `inset(0 ${clipAfter}% 0 0)` }}
+            quality={92}
             draggable={false}
           />
 

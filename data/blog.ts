@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
     category: "Patient Guide",
     publishedAt: "2025-12-05",
     publishedLabel: "Dec 5, 2025",
-    image: "/why-choose-care-chair.webp",
+    image: "/clinic-care-illustration.jpg",
     imageAlt: "iLUMNA Advanced Dental Centre",
     readTimeMinutes: 3,
     content: [

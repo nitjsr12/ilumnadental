@@ -56,9 +56,13 @@ export const aboutPhilosophy = {
     "Our approach is centered on preserving natural teeth whenever possible while delivering highly aesthetic and functional outcomes. We emphasize minimally invasive techniques, evidence-based dentistry, and long-term preventive care.",
   commitmentHeading: "We are committed to",
   gallery: [
-    { src: images.consultation, alt: "Patient consultation at iLUMNA Dental" },
-    { src: images.clinicInterior, alt: "Modern dental clinic interior" },
-    { src: `${CDN}/Advanced-Implant-Dentistry.jpeg`, alt: "Advanced implant dentistry" },
+    { id: "care", src: images.whyChooseChair, alt: "Gentle dental care at iLUMNA Dental" },
+    { id: "clinic", src: images.clinicInterior, alt: "Modern dental clinic interior" },
+    {
+      id: "implants",
+      src: `${CDN}/Advanced-Implant-Dentistry.jpeg`,
+      alt: "Advanced implant dentistry",
+    },
   ],
   pillars: [
     {

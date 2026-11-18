@@ -1,11 +1,22 @@
 import { siteConfig } from "@/lib/site-config";
 import { testimonials } from "@/data/testimonials";
 
+export type PatientTrustStat = {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  decimals?: number;
+};
+
 export type PatientTrustChannel = {
   id: string;
   name: string;
   value: string;
+  /** Count-up animation for numeric card headlines */
+  stat?: PatientTrustStat;
   description: string;
+  /** Animate a number inside the description line */
+  descriptionStat?: PatientTrustStat;
   href: string;
   accent: "google" | "instagram" | "youtube" | "whatsapp";
 };

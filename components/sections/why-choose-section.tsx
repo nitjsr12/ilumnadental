@@ -141,13 +141,14 @@ export function WhyChooseSection() {
                 transition={{ delay: 0.15, duration: 0.55 }}
                 className="relative mt-8 w-full max-w-md overflow-hidden rounded-2xl border border-white/15 shadow-[0_28px_56px_-28px_rgba(0,0,0,0.5)]"
               >
-                <div className="relative aspect-[4/5] sm:aspect-[5/3]">
+                <div className="relative aspect-[4/5] sm:aspect-[5/3] bg-white">
                   <Image
                     src={images.whyChooseChair}
                     alt="Gentle dental treatment at iLUMNA Dental, Jayanagar"
                     fill
                     sizes="(max-width: 1024px) 88vw, 22rem"
-                    className="object-cover object-[center_28%]"
+                    className="object-contain object-center p-2 sm:p-3"
+                    quality={90}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#021a33]/80 via-[#021a33]/15 to-transparent" />
                   <p className="absolute bottom-3 left-4 right-4 text-sm font-semibold text-white/95">

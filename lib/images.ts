@@ -7,16 +7,18 @@ export const images = {
   heroSecondary: `${CDN}/2026/10/DSC03437-scaled.jpg`,
   clinicInterior: `${CDN}/2026/10/DSC03385-scaled.jpg`,
   doctorPortrait: "/dr-inchara-portrait.jpg",
-  /** Treatment room — not the legacy three-person team photo (DSC03224) */
-  consultation: `${CDN}/2026/10/DSC03385-scaled.jpg`,
-  /** Clinical care — replaces legacy team group photo */
-  aboutClinic: "/why-choose-care-chair.webp",
+  /** Consultation / reception — not the team photo (DSC03224) */
+  consultation: `${CDN}/2026/10/DSC03437-scaled.jpg`,
+  /** Clinical care illustration (sharp — replaces low-res chair photo) */
+  aboutClinic: "/clinic-care-illustration.jpg",
   smile: `${CDN}/2026/08/d1.jpeg`,
   /** In-chair care (section cards — not wide hero banners) */
   whyChooseCollage: "/why-choose-care-collage.jpg",
-  whyChooseChair: "/why-choose-care-chair.webp",
+  whyChooseChair: "/why-choose-care-illustration.jpg",
   smileTransformBefore: "/smile-transform/before.jpg",
   smileTransformAfter: "/smile-transform/after.jpg",
+  /** Patient trust section — clinical visit photo */
+  patientTrustHero: "/patient-trust-hero.jpg",
 } as const;
 
 /** Inner page hero banners — clinical photography only (landscape) */

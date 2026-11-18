@@ -8,6 +8,8 @@ import { blogPosts, getPostBySlug, getRelatedPosts } from "@/data/blog";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const instant = false;
+
 export async function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
 }

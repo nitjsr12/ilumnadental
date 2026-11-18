@@ -12,6 +12,7 @@ import {
 } from "@/data/patient-trust-social";
 import { images } from "@/lib/images";
 import { siteConfig } from "@/lib/site-config";
+import { AnimatedStat } from "@/components/ui/animated-stat";
 import { cn } from "@/lib/utils";
 
 const accentClass: Record<PatientTrustChannel["accent"], string> = {
@@ -67,11 +68,12 @@ export function PatientTrustSection() {
             <div className="patient-trust-visual relative overflow-hidden rounded-[1.5rem] border border-[#04437f]/10 shadow-[0_32px_72px_-36px_rgba(4,67,127,0.45)]">
               <div className="relative aspect-[5/4] sm:aspect-[4/3]">
                 <Image
-                  src={images.whyChooseChair}
-                  alt="Patient receiving gentle dental care at iLUMNA Dental"
+                  src={images.patientTrustHero}
+                  alt="Smiling patient during a comfortable visit at iLUMNA Dental, Jayanagar"
                   fill
                   sizes="(max-width: 1024px) 92vw, 540px"
-                  className="object-cover object-[center_30%]"
+                  className="object-cover object-[center_42%]"
+                  quality={92}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#021a33]/55 via-transparent to-[#021a33]/15" />
 
@@ -89,8 +91,12 @@ export function PatientTrustSection() {
                 </p>
 
                 <div className="patient-trust-count-chip absolute bottom-4 right-4 max-w-[14rem] rounded-2xl bg-gradient-to-br from-[#04437f] to-[#0d6eb8] px-4 py-3 text-white shadow-xl">
-                  <p className="text-3xl font-extrabold leading-none tracking-tight">
-                    {patientTrustContent.googleCountLabel}
+                  <p className="text-3xl font-extrabold leading-none tracking-tight text-white">
+                    <AnimatedStat
+                      value={patientTrustContent.googleReviewCount}
+                      suffix="+"
+                      className="!text-3xl !font-extrabold !text-white"
+                    />
                   </p>
                   <p className="mt-1 text-[0.7rem] leading-snug text-white/85">
                     {patientTrustContent.imageCaption}
@@ -148,7 +154,17 @@ export function PatientTrustSection() {
                     <span className="min-w-0 flex-1">
                       <span className="flex items-start justify-between gap-2">
                         <span className="text-lg font-extrabold leading-none text-[#0d1b3e]">
-                          {channel.value}
+                          {channel.stat ? (
+                            <AnimatedStat
+                              value={channel.stat.value}
+                              suffix={channel.stat.suffix}
+                              prefix={channel.stat.prefix}
+                              decimals={channel.stat.decimals ?? 0}
+                              className="!text-lg !font-extrabold !text-[#0d1b3e]"
+                            />
+                          ) : (
+                            channel.value
+                          )}
                         </span>
                         <ArrowUpRight
                           className="h-4 w-4 shrink-0 text-[#1781be] opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
@@ -159,7 +175,19 @@ export function PatientTrustSection() {
                         {channel.name}
                       </span>
                       <span className="mt-1 block text-[0.8rem] leading-snug text-[#64748b]">
-                        {channel.description}
+                        {channel.descriptionStat ? (
+                          <>
+                            <AnimatedStat
+                              value={channel.descriptionStat.value}
+                              suffix={channel.descriptionStat.suffix}
+                              decimals={channel.descriptionStat.decimals ?? 0}
+                              className="!text-[0.8rem] !font-bold !text-[#0d1b3e]"
+                            />{" "}
+                            {channel.description}
+                          </>
+                        ) : (
+                          channel.description
+                        )}
                       </span>
                     </span>
                   </Link>

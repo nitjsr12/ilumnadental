@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
 export function AnimatedStat({
   value,
   suffix = "",
+  prefix = "",
   decimals = 0,
   animateOnView = true,
   className,
 }: {
   value: number;
   suffix?: string;
+  prefix?: string;
   decimals?: number;
   /** When true (default), count-up runs once the stat enters the viewport. */
   animateOnView?: boolean;

@@ -511,12 +511,7 @@ body {
 
 .treatment-service-card-icon-panel {
   isolation: isolate;
-  background: radial-gradient(
-    ellipse 100% 95% at 50% 42%,
-    #d4e9f8 0%,
-    #e3f2fb 48%,
-    #ebf6fc 100%
-  );
+  background: linear-gradient(165deg, #e8f4fc 0%, #f3f9fd 55%, #e3f2fb 100%);
   transition:
     opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -534,8 +529,8 @@ body {
   max-width: min(92%, 12rem);
   object-fit: contain;
   background: transparent !important;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 8px 18px rgba(4, 67, 127, 0.14));
+  mix-blend-mode: normal;
+  filter: none;
   transition:
     opacity 0.45s ease,
     transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2541,6 +2536,15 @@ body {
 }
 
 /* Before / after smile slider (compare handle) */
+.before-after-photo {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.before-after-frame {
+  margin-inline: auto;
+}
+
 .before-after-slider,
 .before-after-slider .relative.touch-none {
   cursor: ew-resize;
@@ -2553,7 +2557,7 @@ body {
 
 .before-after-label {
   position: absolute;
-  top: 0.75rem;
+  top: 0.65rem;
   z-index: 5;
   border-radius: 0.25rem;
   background: #ffffff;
@@ -2811,36 +2815,152 @@ body {
   }
 }
 
-/* Initial load — solid clinical blue + logo mark */
+/* Initial load — cinematic brand splash */
 .splash-loader {
-  background: #35aed4;
+  background: #021a33;
+}
+
+.splash-loader-bg .splash-v2-sweep {
+  opacity: 0.55;
 }
 
 .splash-loader-mark {
-  width: min(80vw, 14rem);
-  height: min(55vw, 9.5rem);
+  width: min(78vw, 13rem);
+  height: min(78vw, 13rem);
 }
 
-.splash-loader-arc {
-  inset: 0;
+.splash-loader-ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.splash-loader-ring-progress {
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.splash-loader-logo-glow {
+  position: absolute;
+  inset: 8%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(5, 162, 164, 0.35), transparent 70%);
+  filter: blur(16px);
+}
+
+.splash-loader-logo-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.splash-loader-mark-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0.85rem 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 24px 56px -20px rgba(2, 26, 51, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .splash-loader-logo {
-  filter: brightness(0) invert(1);
+  filter: none;
+}
+
+.splash-loader-arc {
+  inset: -6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-loader-status-panel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(2, 26, 51, 0.42);
+  box-shadow: 0 16px 40px -24px rgba(2, 26, 51, 0.65);
+  backdrop-filter: blur(12px);
+}
+
+.splash-loader-status-kicker {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.splash-loader-status-pct {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.splash-loader-status-pct-suffix {
+  margin-left: 1px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.splash-loader-status-msg {
+  min-height: 1.35rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.splash-loader-status-foot {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.splash-loader-track {
+  height: 0.35rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 2px rgba(2, 26, 51, 0.25);
+}
+
+.splash-loader-fill {
+  min-width: 2%;
+  background: linear-gradient(90deg, #05a2a4 0%, #1781be 45%, #f5d76e 100%);
+  box-shadow: 0 0 20px rgba(5, 162, 164, 0.45);
+}
+
+.splash-loader-fill-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  animation: splash-loader-shimmer 2.2s ease-in-out infinite;
+}
+
+@keyframes splash-loader-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.splash-loader-emoji {
+  text-shadow: 0 4px 16px rgba(2, 26, 51, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash-loader-arc {
+  .splash-loader-arc,
+  .splash-loader-fill-shimmer,
+  .splash-loader-bg .splash-v2-sweep {
     animation: none !important;
+  }
+
+  .splash-loader-ring-progress {
+    transition: none;
   }
 }

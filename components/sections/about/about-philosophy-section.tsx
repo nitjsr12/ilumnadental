@@ -66,7 +66,7 @@ export function AboutPhilosophySection() {
           <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-10">
             {aboutPhilosophy.gallery.map((photo, i) => (
               <motion.div
-                key={photo.src}
+                key={photo.id}
                 initial={{ opacity: 0, scale: 0.94 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

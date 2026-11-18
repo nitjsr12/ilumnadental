@@ -8,6 +8,9 @@ import { getTreatmentBySlug, treatments } from "@/data/treatments";
 
 type Props = { params: Promise<{ slug: string }> };
 
+/** Dynamic slug — allow blocking while params resolve (Next.js 16 instant nav) */
+export const instant = false;
+
 export async function generateStaticParams() {
   return treatments.map((t) => ({ slug: t.slug }));
 }

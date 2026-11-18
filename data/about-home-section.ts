@@ -80,7 +80,7 @@ export const aboutHomeChecklist = [
 
 export const aboutHomeGallery = {
   primary: images.whyChooseChair,
-  primaryAlt: "Gentle in-chair dental care at iLUMNA Dental, Jayanagar",
+  primaryAlt: "Advanced dental care at iLUMNA Dental, Jayanagar",
   secondary: images.consultation,
   secondaryAlt: "Consultation at iLUMNA Advanced Dental Centre",
 } as const;
