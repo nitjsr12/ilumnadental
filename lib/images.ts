@@ -15,6 +15,8 @@ export const images = {
   /** In-chair care (section cards — not wide hero banners) */
   whyChooseCollage: "/why-choose-care-collage.jpg",
   whyChooseChair: "/why-choose-care-illustration.jpg",
+  /** Homepage About section — in-clinic operatory */
+  aboutHomePrimary: "/about-home-operatory.jpg",
   smileTransformBefore: "/smile-transform/before.jpg",
   smileTransformAfter: "/smile-transform/after.jpg",
   /** Patient trust section — clinical visit photo */

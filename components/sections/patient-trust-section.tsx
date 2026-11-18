@@ -69,10 +69,10 @@ export function PatientTrustSection() {
               <div className="relative aspect-[5/4] sm:aspect-[4/3]">
                 <Image
                   src={images.patientTrustHero}
-                  alt="Smiling patient during a comfortable visit at iLUMNA Dental, Jayanagar"
+                  alt="Precision dental examination at iLUMNA Dental, Jayanagar"
                   fill
                   sizes="(max-width: 1024px) 92vw, 540px"
-                  className="object-cover object-[center_42%]"
+                  className="object-cover object-center"
                   quality={92}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#021a33]/55 via-transparent to-[#021a33]/15" />

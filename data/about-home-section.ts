@@ -79,8 +79,9 @@ export const aboutHomeChecklist = [
 ] as const;
 
 export const aboutHomeGallery = {
-  primary: images.whyChooseChair,
-  primaryAlt: "Advanced dental care at iLUMNA Dental, Jayanagar",
+  primary: images.aboutHomePrimary,
+  primaryAlt:
+    "Digital diagnostics and modern operatory at iLUMNA Advanced Dental Centre, Jayanagar",
   secondary: images.consultation,
   secondaryAlt: "Consultation at iLUMNA Advanced Dental Centre",
 } as const;
