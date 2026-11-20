@@ -129,6 +129,24 @@ export const invisalignProcess = {
   closingHeading: "Ready to Begin Your Smile Transformation?",
 } as const;
 
+export const invisalignGoogleReview = {
+  eyebrow: "Google review",
+  title: "What Invisalign patients say on Google",
+  /** Swap `src` when you add a dedicated doctor–patient photo */
+  image: {
+    src: "https://ilumnadental.in/wp-content/uploads/2026/10/DSC03437-scaled.jpg",
+    alt: "Dr. Inchara with a patient during consultation at iLUMNA Dental, Jayanagar",
+    label: "Doctor with patient photo",
+  },
+  rating: 5,
+  quote:
+    "Dr. Inchara walked me through every step of my clear aligner treatment. The scans, planning, and aligner changes were smooth — I always felt informed and comfortable at the Jayanagar clinic.",
+  author: "Ananya R.",
+  treatment: "Invisalign · Clear aligners",
+  postedAgo: "1 month ago",
+  cta: "Read more on Google",
+} as const;
+
 export type InvisalignMediaKey =
   | "invisalign-hero"
   | "invisalign-compare-braces"

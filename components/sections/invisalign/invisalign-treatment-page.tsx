@@ -11,6 +11,7 @@ import { SectionShell } from "@/components/ui/section-shell";
 import { PremiumSectionHeader } from "@/components/ui/premium-section-header";
 import { Button } from "@/components/ui/button";
 import { InvisalignCompareSplit } from "@/components/sections/invisalign/invisalign-compare-split";
+import { InvisalignGoogleReviewSection } from "@/components/sections/invisalign/invisalign-google-review-section";
 import { InvisalignJourneySection } from "@/components/sections/invisalign/invisalign-journey-section";
 import { InvisalignWhySection } from "@/components/sections/invisalign/invisalign-why-section";
 
@@ -68,6 +69,16 @@ export function InvisalignTreatmentPage() {
 
       <SectionShell id="invisalign-process" variant="surface" decorDensity="soft" className="!pt-2" animate={false}>
         <InvisalignJourneySection />
+      </SectionShell>
+
+      <SectionShell
+        id="invisalign-reviews"
+        variant="muted"
+        decorDensity="soft"
+        className="!pt-4 !pb-12"
+        animate={false}
+      >
+        <InvisalignGoogleReviewSection />
       </SectionShell>
     </div>
   );

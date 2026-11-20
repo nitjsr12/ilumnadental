@@ -436,6 +436,26 @@
   box-shadow: 0 24px 52px -32px rgba(4, 67, 127, 0.28);
 }
 
+.invisalign-review-section {
+  position: relative;
+}
+
+.invisalign-review-mesh {
+  background-image: radial-gradient(circle at 80% 30%, rgba(13, 148, 136, 0.08) 0%, transparent 50%);
+}
+
+.invisalign-review-quote::before {
+  content: "“";
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 800;
+  color: rgba(4, 67, 127, 0.08);
+  pointer-events: none;
+}
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .invisalign-journey-flow {
     gap: 0;
