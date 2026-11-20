@@ -21,9 +21,9 @@ export const treatments: Treatment[] = [
     slug: "hip-joint-treatment",
     title: "Invisalign Clear Aligners",
     shortDescription:
-      "Straighten your smile discreetly with clear aligners and digital orthodontic planning.",
+      "Achieve a straighter smile with clear, removable aligners and personalised digital treatment planning.",
     description:
-      "Discreet orthodontic care with Invisalign clear aligners and digital treatment planning tailored to your smile goals.",
+      "Invisalign clear aligners offer discreet orthodontic care with digital treatment planning tailored to your smile goals.",
     icon: "align",
     iconImage: "/treatment-icons/invisalign.png",
     hoverImage: "/treatment-hover/invisalign.jpg",

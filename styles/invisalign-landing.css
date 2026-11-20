@@ -1,0 +1,536 @@
+/* Invisalign landing — imported by invisalign-treatment-page (kept separate for reliable HMR) */
+
+.invisalign-page {
+  --invisalign-teal: #0d9488;
+  --invisalign-mint: #d1fae5;
+  --invisalign-aqua: #e0f2fe;
+  --invisalign-ivory: #fffbf7;
+  --invisalign-charcoal: #1e293b;
+  --invisalign-deep: #021a33;
+}
+
+.invisalign-display-title {
+  letter-spacing: -0.03em;
+}
+
+.invisalign-gradient-text {
+  color: #7ee8c6;
+  background: linear-gradient(100deg, #7ee8c6 0%, #a5f3fc 45%, #f5d76e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .invisalign-gradient-text {
+    color: transparent;
+  }
+}
+
+.invisalign-gradient-text-dark {
+  color: #1781be;
+  background: linear-gradient(100deg, #05a2a4 0%, #1781be 55%, #0d9488 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .invisalign-gradient-text-dark {
+    color: transparent;
+  }
+}
+
+.invisalign-why-panel {
+  background: linear-gradient(145deg, #021a33 0%, #04437f 48%, #0d5c4a 100%);
+  box-shadow: 0 40px 80px -40px rgba(2, 26, 51, 0.65);
+}
+
+.invisalign-why-panel-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 70% at 70% 50%, black, transparent);
+}
+
+.invisalign-why-accent-line {
+  background: linear-gradient(90deg, #7ee8c6, #f5d76e, transparent);
+}
+
+.invisalign-highlight-card--modern {
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.invisalign-highlight-card--modern:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 16px 40px -24px rgba(0, 0, 0, 0.45);
+}
+
+.invisalign-hero-gif {
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.invisalign-hero-media-ring {
+  background: conic-gradient(
+    from 0deg,
+    #7ee8c6,
+    #05a2a4,
+    #1781be,
+    #f5d76e,
+    #0d9488,
+    #7ee8c6
+  );
+  opacity: 0.85;
+}
+
+.invisalign-hero-media-frame {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(165deg, #e8faf4 0%, #dff4ec 50%, #d0efe6 100%);
+}
+
+.invisalign-hero-floating-badge {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invisalign-hero-media-ring {
+    animation: none !important;
+  }
+}
+
+.invisalign-why-panel-mesh {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(126, 232, 198, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(23, 129, 190, 0.2) 0%, transparent 50%),
+    linear-gradient(180deg, transparent 0%, rgba(2, 26, 51, 0.25) 100%);
+}
+
+.invisalign-why-panel-orb--a {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  left: -80px;
+  top: -60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.35) 0%, transparent 70%);
+  filter: blur(8px);
+}
+
+.invisalign-why-panel-orb--b {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  right: -100px;
+  bottom: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 215, 110, 0.2) 0%, transparent 70%);
+  filter: blur(12px);
+}
+
+.invisalign-highlight-card {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.invisalign-highlight-card h3 {
+  color: #ffffff;
+}
+
+.invisalign-highlight-card--teal {
+  box-shadow: inset 0 1px 0 rgba(126, 232, 198, 0.2);
+}
+
+.invisalign-highlight-card--gold {
+  box-shadow: inset 0 1px 0 rgba(245, 215, 110, 0.25);
+}
+
+.invisalign-highlight-card--sky {
+  box-shadow: inset 0 1px 0 rgba(165, 243, 252, 0.25);
+}
+
+.invisalign-highlight-card--violet {
+  box-shadow: inset 0 1px 0 rgba(167, 139, 250, 0.2);
+}
+
+.invisalign-highlight-num {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(2, 26, 51, 0.45);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.invisalign-hero-chip {
+  color: #ffffff;
+}
+
+.invisalign-compare-mesh {
+  background-image: radial-gradient(circle at 15% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 45%);
+}
+
+.invisalign-compare-dots {
+  background-image: radial-gradient(rgba(4, 67, 127, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+  opacity: 0.6;
+}
+
+.invisalign-compare-vs-ring {
+  background: linear-gradient(135deg, #04437f 0%, #0d9488 100%);
+  box-shadow: 0 16px 40px -12px rgba(5, 162, 164, 0.55);
+  outline: 4px solid #ffffff;
+}
+
+/* Split infographic — braces vs aligners */
+.invisalign-split-side--braces {
+  background: linear-gradient(165deg, #e4ebf3 0%, #f3f6fa 42%, #dce5ef 100%);
+}
+
+.invisalign-split-side--aligners {
+  background: linear-gradient(195deg, #d4f2ea 0%, #eefcf8 48%, #dff4f8 100%);
+}
+
+.invisalign-split-media {
+  min-height: 10.5rem;
+}
+
+@media (min-width: 768px) {
+  .invisalign-split-media {
+    min-height: 12rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invisalign-split-media {
+    min-height: 13.5rem;
+  }
+
+  .invisalign-compare-arena {
+    padding-inline: clamp(1rem, 3vw, 2rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .invisalign-split-side--braces {
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    padding-right: clamp(2rem, 4vw, 4rem);
+  }
+
+  .invisalign-split-side--aligners {
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    padding-left: clamp(2rem, 4vw, 4rem);
+  }
+
+  .invisalign-split-diagonal {
+    position: absolute;
+    top: 8%;
+    bottom: 8%;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+    transform: skewX(-9deg);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.95) 12%,
+      rgba(255, 255, 255, 0.95) 88%,
+      transparent 100%
+    );
+    box-shadow:
+      -18px 0 36px -12px rgba(23, 129, 190, 0.18),
+      18px 0 36px -12px rgba(13, 148, 136, 0.2);
+    display: block;
+  }
+}
+
+.invisalign-split-footer {
+  background: linear-gradient(90deg, #021a33 0%, #04437f 45%, #036672 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.invisalign-split-pill--braces {
+  background: linear-gradient(135deg, #04437f, #1781be);
+  box-shadow: 0 8px 20px -8px rgba(4, 67, 127, 0.55);
+}
+
+.invisalign-split-pill--aligners {
+  background: linear-gradient(135deg, #0d9488, #05a2a4);
+  box-shadow: 0 8px 20px -8px rgba(13, 148, 136, 0.5);
+}
+
+.invisalign-split-benefit-icon {
+  box-shadow: 0 6px 16px -10px rgba(4, 67, 127, 0.35);
+}
+
+.invisalign-compare-treatment-icon img {
+  filter: none;
+  transform: translateZ(0);
+}
+
+.invisalign-split-title--braces {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.invisalign-split-title--aligners {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.invisalign-split-vs-badge {
+  box-shadow: 0 8px 20px -6px rgba(5, 162, 164, 0.55);
+}
+
+.invisalign-split-headline-mid {
+  line-height: 1.35;
+}
+
+.invisalign-compare-cell--braces {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+}
+
+.invisalign-compare-cell--invisalign {
+  background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 100%);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+}
+
+.invisalign-compare-emphasis {
+  color: #0d5c4a;
+}
+
+.invisalign-compare-thead-cell--braces {
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.invisalign-compare-vs-pill {
+  background: linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
+}
+
+.invisalign-compare-table {
+  backdrop-filter: blur(6px);
+}
+
+.invisalign-compare-thead-cell--invisalign {
+  border: 1px solid rgba(13, 148, 136, 0.28);
+  background: linear-gradient(145deg, #ecfdf5 0%, #fff 45%, #e0f2fe 100%);
+  box-shadow: 0 12px 28px -18px rgba(13, 148, 136, 0.45);
+}
+
+.invisalign-media-slot {
+  min-height: 0;
+}
+
+.invisalign-compare-close {
+  background: linear-gradient(180deg, rgba(224, 242, 254, 0.65) 0%, rgba(236, 253, 245, 0.9) 100%);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+}
+
+.invisalign-flow-rail {
+  background: linear-gradient(90deg, #05a2a4, #1781be, #0d9488, #05a2a4);
+  box-shadow: 0 0 24px rgba(5, 162, 164, 0.35);
+}
+
+/* Journey flow — tilted cards + arrows */
+.invisalign-journey-flow-rail {
+  background: linear-gradient(
+    90deg,
+    #14b8a6,
+    #38bdf8,
+    #3b82f6,
+    #6366f1,
+    #a855f7,
+    #d946ef
+  );
+  opacity: 0.35;
+}
+
+.invisalign-journey-arrow {
+  align-items: center;
+  width: clamp(1.25rem, 2.2vw, 2.5rem);
+  margin-inline: -0.15rem;
+  z-index: 2;
+}
+
+.invisalign-journey-arrow-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  background: white;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .invisalign-journey-arrow-dot--pulse {
+    animation: invisalign-journey-dot-pulse 2.2s ease-in-out infinite;
+  }
+}
+
+@keyframes invisalign-journey-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.invisalign-journey-arrow-svg {
+  width: 100%;
+  height: 1.25rem;
+  flex: 1;
+  min-width: 1rem;
+}
+
+.invisalign-journey-card {
+  transform-origin: center center;
+}
+
+.invisalign-journey-badge {
+  z-index: 3;
+  outline: 3px solid #ffffff;
+}
+
+.invisalign-journey-flow-scroll {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.invisalign-journey-flow-scroll li {
+  scroll-snap-align: start;
+}
+
+.invisalign-journey-section {
+  overflow-x: clip;
+}
+
+.invisalign-journey-stage {
+  position: relative;
+}
+
+.invisalign-journey-stage-mesh {
+  border-radius: 2rem;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(13, 148, 136, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 88% 78%, rgba(23, 129, 190, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.invisalign-journey-stage-glow {
+  background: linear-gradient(90deg, rgba(45, 212, 191, 0.2), rgba(99, 102, 241, 0.15));
+  opacity: 0.55;
+}
+
+.invisalign-journey-flow-rail {
+  opacity: 0.55;
+  box-shadow: 0 0 28px rgba(99, 102, 241, 0.25);
+}
+
+.invisalign-journey-media {
+  box-shadow: 0 24px 52px -32px rgba(4, 67, 127, 0.28);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .invisalign-journey-flow {
+    gap: 0;
+  }
+
+  .invisalign-journey-card {
+    min-height: 10.5rem !important;
+    padding-top: 1.75rem !important;
+  }
+}
+
+.invisalign-flow-line {
+  background: linear-gradient(180deg, #05a2a4, #1781be);
+}
+
+.invisalign-flow-connector {
+  background: linear-gradient(90deg, #05a2a4, transparent);
+}
+
+.invisalign-step-node--teal {
+  border-color: rgba(13, 148, 136, 0.45);
+  background: linear-gradient(145deg, #ecfdf5, #ffffff);
+  color: #0d5c4a;
+}
+
+.invisalign-step-node--blue {
+  border-color: rgba(23, 129, 190, 0.4);
+  background: linear-gradient(145deg, #e0f2fe, #ffffff);
+  color: #04437f;
+}
+
+.invisalign-step-node--violet {
+  border-color: rgba(139, 92, 246, 0.35);
+  background: linear-gradient(145deg, #ede9fe, #ffffff);
+  color: #5b21b6;
+}
+
+.invisalign-step-node--gold {
+  border-color: rgba(245, 215, 110, 0.45);
+  background: linear-gradient(145deg, #fffbeb, #ffffff);
+  color: #92400e;
+}
+
+.invisalign-step-card--teal {
+  border-color: rgba(13, 148, 136, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%);
+}
+
+.invisalign-step-card--blue {
+  border-color: rgba(23, 129, 190, 0.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.invisalign-step-card--violet {
+  border-color: rgba(139, 92, 246, 0.16);
+  background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 100%);
+}
+
+.invisalign-step-card--gold {
+  border-color: rgba(245, 215, 110, 0.25);
+  background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);
+}
+
+.invisalign-step-card h3 {
+  color: #021a33;
+}
+
+.invisalign-step-card p {
+  color: #475569;
+}
+
+.invisalign-process-close-bg {
+  background: linear-gradient(125deg, #021a33 0%, #04437f 45%, #0d9488 100%);
+}
+
+.invisalign-process-close-shine {
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 70%
+  );
+}
+
+.invisalign-process-intro {
+  padding: 0.5rem 0 0;
+}
+
+.invisalign-compare-board .premium-section-title,
+.invisalign-compare-arena .premium-section-title {
+  color: #0d1b3e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invisalign-page .invisalign-hero-chip {
+    animation: none !important;
+  }
+}
